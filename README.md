@@ -1,62 +1,25 @@
-jquery-chat
-===========
+Candy — a JavaScript-based multi-user chat client
+==================================================
 
-100% pure javascript realtime chat (client and server) facebook/gmail style web chat.
-
-The jQuery Chat plugin can be used to add a JavaScript-based chatting system to your site, 
-allows webmasters/developers to add a fully-working chat room on top of their site, see 'index.html' as an example.
-
-With some of this components -> [Jquery](http://jquery.com/), [Node.js](http://nodejs.org/), [Socket.IO](http://socket.io/)
-
-### Prerequisites:
-
-	* Node.js - npm
-	* Webserver (Apache, IIS, Nginx, Lighttpd, etc)
-
-**Note:** Remember to clone the project behind a webserver, if you want to execute local file index.html it wont work.
+Visit the official project page: http://candy-chat.github.io/candy
 
 Features
+--------
+- Focused on real-time multi-user chatting
+- Easy to configure, easy to run, easy to use
+- Highly customizable
+- 100% well-documented JavaScript source code
+- Built for Jabber (XMPP), using famous technologies
+- Used and approved in a productive environment with up to 400 concurrent users
+- Works with all major web browsers including IE7
 
-	* Multi themes support (jquery-ui)
-	* 100% javascript (client and server side)
-	* Configuration file (fancy things and connecting stuff)
-	* Support multiple languages
-	* New message pop-up notifications
-	* Multi users chat
-	* Search users
-	* Sounds 
-	* Browser support: (Opera, Firefox, Google Chrome, Safari, Internet Explorer)
+Plugins
+-------
+If you wish to add new functionality (to your candy installation) or contribute plugins, take a look at our [plugin repository](http://github.com/candy-chat/candy-plugins).
 
-## Installation
+Support & Community
+-------------------
+Take a look at our [FAQ](https://github.com/candy-chat/candy/wiki/Frequently-Asked-Questions). If it doesn't solve your questions, you're welcome to join our [Mailinglist on Google Groups](http://groups.google.com/group/candy-chat).
+You don't need to have a Gmail account for it. 
 
-### 1. Clone the project
-
-	$ cd /var/www/
-	$ git clone https://github.com/lovelle/jquery-chat
-	$ cd jquery-chat
-
-### 2. Configuration
-
-	# Go to cloned project
-	$ cd /var/www/jquery-chat/
-	# Adjust personal setting to 'server' ip or dns
-	$ editor config.js
-	# And the same for line 11 in index.html
-	$ editor index.html
-
-### 3. Install and run Node.js
-
-	$ cd /var/www/jquery-chat/server
-	$ npm install
-	$ npm start
-
-
-### 4. Run
-Lets it, to finish remember you must have a webserver, if you dont want to install a full webserver you can do it with python server:
-
-	# Go to project folder
-	$ cd /var/www/jquery-chat
-	# Run webserver with python lib
-	$ python -m SimpleHTTPServer
-
-Finish!, go to visit http://localhost:8000/
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/a41a8075608abeaf99db685d7ef29cf6 "githalytics.com")](http://githalytics.com/candy-chat/candy)
