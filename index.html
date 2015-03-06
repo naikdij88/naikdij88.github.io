@@ -20,9 +20,12 @@
 					//     -> fetch info from server (NOTE: does only work with openfire server)
 					//   ['test@conference.example.com']
 					//     -> array of rooms to join after connecting
-					//autojoin: true
+					autojoin: ['test', 'test']
 				},
-				view: { assets: 'res/' }
+				view: { assets: 'res/' 
+				           language: 'ru'
+				}
+				
 			});
 
 			Candy.Core.connect();
