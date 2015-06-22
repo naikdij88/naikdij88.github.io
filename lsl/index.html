@@ -14,7 +14,13 @@
 
         <script type="text/javascript" src="cordova.js"></script>
         <title>КРАТКИЙ СПРАВОЧНИК ПО LSL</title>
-
+		<script>
+			$(document).ready(function(){
+			  $("button").click(function(){
+				alert($("#yan").attr("href"));
+			  });
+			});
+		</script>
     </head>
     <body>
     <!---start--->
@@ -48,6 +54,13 @@
             <h1 class="ui-title" role="heading" aria-level="1">A. ЛИНДЕН-ФУНКЦИИ</h1>
         </div>
         <div data-role="content">
+		<script>
+			$(document).ready(function(){
+			  $("button").click(function(){
+				alert($("#yan").attr("href"));
+			  });
+			});
+		</script>
             <div data-role="collapsible-set" >
                 <ui data-role="listview" data-filter="true" data-filter-placeholder="Поиск..." data-inset="true">
                     <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
@@ -482,8 +495,8 @@
                         <h3><span class="kw00">A.70.</span> llGetInventoryKey</h3>
                         <p><span class="kw4">key</span> <span class="kw5">llGetInventoryKey</span>(<span class="kw4">string</span> name);</p>
                         <p>Возвращает ключ по заданному имени <span class="kw00">name</span> записи(<span class="kw00">или обьекта</span>) в личном инвентаре текущего обьекта.</p>
-                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryKey" target="CONTENT"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
-						<p><a href="#nul" ONCLICK="window.open('http://wiki.secondlife.com/wiki/LlGetInventoryKey','','Toolbar=1,Location=0,Directories=0,Status=0,Menubar=0,Scrollbars=0,Resizable=0,Width=550,Height=400');"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryKey" id="yan"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+						<button>Показать Значение href</button>
                     </div>
 
                 </ui>
