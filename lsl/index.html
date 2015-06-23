@@ -7,17 +7,16 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
         <link rel="stylesheet" href="css/index.css" />
-        <script src="js/sweetalert.min.js"></script>
 
+        <script src="js/sweetalert.min.js"></script>
         <link rel="stylesheet" href="css/sweetalert.css" />
 
         <script type="text/javascript" src="cordova.js"></script>
         <title>КРАТКИЙ СПРАВОЧНИК ПО LSL</title>
-
     </head>
     <body>
     <!---start--->
@@ -485,34 +484,10 @@
                         <h3><span class="kw00">A.70.</span> llGetInventoryKey</h3>
                         <p><span class="kw4">key</span> <span class="kw5">llGetInventoryKey</span>(<span class="kw4">string</span> name);</p>
                         <p>Возвращает ключ по заданному имени <span class="kw00">name</span> записи(<span class="kw00">или обьекта</span>) в личном инвентаре текущего обьекта.</p>
-                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryKey" target="_blank" class="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryKey" target="_blank" class="hr" id="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
                     </div>
 
-                    <script>
-                        $('.hr').click(function(e) {
-                            e.preventDefault(); // Предотвратить href от перенаправления напрямую
-                            var linkURL = $(this).attr("href");
-                            warnBeforeRedirect(linkURL);
-                            txt_2_clpbrd(linkURL);
-                        });
-                        function warnBeforeRedirect(linkURL) {
-                            swal({
-                                title: "Скопируйте ссылку:",
-                                text: "" + linkURL,
-                                type: "success", //"warning",
-                                showCancelButton: false//true
-                            }, function() {
-                                // Перенаправить пользователя
-                                //window.location.href = linkURL;
-                            });
-                        }
-                        function txt_2_clpbrd(linkURL){
-                            window.clipboardData.setData("Text",linkURL);
-                        }
-                    </script>
-
                 </ui>
-
             </div>
 
 
@@ -704,7 +679,37 @@
 
     </div>
     <!---диалоги--->
+    <div  data-role="dialog" id="iframe" data-url="dialog1" tabindex="0" >
 
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Wiki</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <div id="my_if"></div>
+    </div>
+    <script>
+        $('.hr').click(function(e) {
+            e.preventDefault(); // Предотвратить href от перенаправления напрямую
+            var linkURL = $(this).attr("href");
+            warnBeforeRedirect(linkURL);
+           //$("#my_if").html("<iframe src='' width='99%' height='410' id='my_if1'></iframe>" );
+            //$("#my_if1").content().append("linkURL");
+            $("#my_if").html("<iframe src="+linkURL+" width='99%' height='410' id='my_if1'></iframe>" );
+        });
+        function warnBeforeRedirect(linkURL) {
+            swal({
+                title: "Скопируйте ссылку:",
+                text: linkURL + " Либо откройте её в окне:",
+                type: "success", //"warning",
+                showCancelButton: true
+            }, function() {
+                // Перенаправить пользователя
+                window.location.href = "#iframe";
+            });
+        }
+
+    </script>
     </body>
 
 </html>
