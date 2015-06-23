@@ -11,16 +11,13 @@
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
         <link rel="stylesheet" href="css/index.css" />
+        <script src="js/sweetalert.min.js"></script>
+
+        <link rel="stylesheet" href="css/sweetalert.css" />
 
         <script type="text/javascript" src="cordova.js"></script>
         <title>КРАТКИЙ СПРАВОЧНИК ПО LSL</title>
-		<script>
-			$(document).ready(function(){
-			  $("button").click(function(){
-				alert($("#yan").attr("href"));
-			  });
-			});
-		</script>
+
     </head>
     <body>
     <!---start--->
@@ -54,13 +51,6 @@
             <h1 class="ui-title" role="heading" aria-level="1">A. ЛИНДЕН-ФУНКЦИИ</h1>
         </div>
         <div data-role="content">
-		<script>
-			$(document).ready(function(){
-			  $("button").click(function(){
-				alert($("#yan").attr("href"));
-			  });
-			});
-		</script>
             <div data-role="collapsible-set" >
                 <ui data-role="listview" data-filter="true" data-filter-placeholder="Поиск..." data-inset="true">
                     <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
@@ -489,15 +479,35 @@
                         <h3><span class="kw00">A.69.</span> llGetInventoryCreator</h3>
                         <p><span class="kw4">key</span> <span class="kw5">llGetInventoryCreator</span>(<span class="kw4">string</span> name);</p>
                         <p>Возвращает ключ(<span class="kw00">идентификатор</span>) создателя обьекта <span class="kw00">name</span> находящегося в личном инвентаре текущего обьекта.</p>
-                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryCreator" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryCreator" target="_blank" class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
                     </div>
                     <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
                         <h3><span class="kw00">A.70.</span> llGetInventoryKey</h3>
                         <p><span class="kw4">key</span> <span class="kw5">llGetInventoryKey</span>(<span class="kw4">string</span> name);</p>
                         <p>Возвращает ключ по заданному имени <span class="kw00">name</span> записи(<span class="kw00">или обьекта</span>) в личном инвентаре текущего обьекта.</p>
-                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryKey" id="yan"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
-						<button>Показать Значение href</button>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryKey" target="_blank" class="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+
                     </div>
+
+                    <script>
+                        $('.hr').click(function(e) {
+                            e.preventDefault(); // Предотвратить href от перенаправления напрямую
+                            var linkURL = $(this).attr("href");
+                            warnBeforeRedirect(linkURL);
+                        });
+
+                        function warnBeforeRedirect(linkURL) {
+                            swal({
+                                title: "Скопируйте ссылку:",
+                                text: "" + linkURL,
+                                type: "success", //"warning",
+                                showCancelButton: true
+                            }, function() {
+                                // Перенаправить пользователя
+                                window.location.href = linkURL;
+                            });
+                        }
+                    </script>
 
                 </ui>
 
