@@ -539,6 +539,25 @@
             <a href="#start_b" role="button"  data-transition="flip" >B. СОБЫТИЯ</a>
         </div>
     </div>
+    <!---фрейм--->
+    <div data-role="page" data-theme="b" id="start_f">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-title" role="heading" aria-level="1">Wiki</h1>
+        </div>
+
+        <div data-role="content">
+
+            <div id="my_if"></div>
+
+
+
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <a href="#start" role="button"  data-transition="flip" >HOME</a>
+            <a href="#start_a" role="button"  data-transition="flip" >A. ЛИНДЕН-ФУНКЦИИ</a>
+        </div>
+    </div>
     <!---диалоги--->
     <div  data-role="dialog" id="Constants" data-url="dialog1" tabindex="0" >
 
@@ -686,7 +705,7 @@
             <h1 class="ui-title" role="heading" aria-level="1">Wiki</h1>
         </div>
         <div role="main" class="ui-contain"></div>
-        <div id="my_if"></div>
+
     </div>
     <script>
         $('.hr').click(function(e) {
@@ -695,7 +714,7 @@
             warnBeforeRedirect(linkURL);
            //$("#my_if").html("<iframe src='' width='99%' height='410' id='my_if1'></iframe>" );
             //$("#my_if1").content().append("linkURL");
-            $("#my_if").html("<iframe src="+linkURL+" width='99%' height='410' id='my_if1'></iframe>" );
+            $("#my_if").html("<iframe src="+linkURL+" width='99%' height='400' id='my_if1'></iframe>" );
         });
         function warnBeforeRedirect(linkURL) {
             swal({
@@ -705,7 +724,7 @@
                 showCancelButton: true
             }, function() {
                 // Перенаправить пользователя
-                window.location.href = "#iframe";
+                window.location.href = "#start_f";
             });
         }
 
