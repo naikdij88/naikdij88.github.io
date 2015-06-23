@@ -486,7 +486,6 @@
                         <p><span class="kw4">key</span> <span class="kw5">llGetInventoryKey</span>(<span class="kw4">string</span> name);</p>
                         <p>Возвращает ключ по заданному имени <span class="kw00">name</span> записи(<span class="kw00">или обьекта</span>) в личном инвентаре текущего обьекта.</p>
                         <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryKey" target="_blank" class="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
-
                     </div>
 
                     <script>
@@ -494,18 +493,21 @@
                             e.preventDefault(); // Предотвратить href от перенаправления напрямую
                             var linkURL = $(this).attr("href");
                             warnBeforeRedirect(linkURL);
+                            txt_2_clpbrd(linkURL);
                         });
-
                         function warnBeforeRedirect(linkURL) {
                             swal({
                                 title: "Скопируйте ссылку:",
                                 text: "" + linkURL,
                                 type: "success", //"warning",
-                                showCancelButton: true
+                                showCancelButton: false//true
                             }, function() {
                                 // Перенаправить пользователя
-                                window.location.href = linkURL;
+                                //window.location.href = linkURL;
                             });
+                        }
+                        function txt_2_clpbrd(linkURL){
+                            window.clipboardData.setData("Text",linkURL);
                         }
                     </script>
 
