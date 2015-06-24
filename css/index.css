@@ -1,0 +1,69 @@
+
+.leftimg {
+    float:left; /* Выравнивание по левому краю */
+    margin: 0px 5px 5px 0; /* Отступы вокруг картинки */
+}
+.rightimg {
+    float: right; /* Выравнивание по правому краю */
+    margin: 5px 0 5px 5px; /* Отступы вокруг картинки */
+}
+
+.kw01 {
+    color: #73acab;
+}
+.us{
+    color: #bc9562;
+    font-style: italic;
+}
+.kw00 {
+    color: #afb0b4;
+}
+.kw1 {
+    color: #0000ff;
+}
+.kw2 {
+    color: #000080;
+}
+.kw3 {
+    color: #008080;
+}
+ .kw4 {
+    color: #228b22;
+}
+.kw5 {
+    color: #b22222;
+}
+.kw6 {
+    background-color: #ffff00;
+    color: #8b0000;
+}
+.kw7 {
+    background-color: #fa8072;
+    color: #8b0000;
+}
+.kw8 {
+    background-color: #ba55d3;
+    color: #000000;
+}
+.fit{
+    font-style: italic;
+}
+.co1 {
+    color: #ff7f50;
+    font-style: italic;
+}
+.lsl2.source-lsl2 .es0 {
+    color: #000099;
+}
+.lsl2.source-lsl2 .br0 {
+    color: #000000;
+}
+.lsl2.source-lsl2 .sy0 {
+    color: #000000;
+}
+.st0 {
+    color: #006400;
+}
+.lsl2.source-lsl2 .nu0 {
+    color: #000000;
+}

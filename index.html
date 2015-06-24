@@ -1,114 +1,724 @@
+<!DOCTYPE html>
+
 <html>
-   <head>
-   <title>LSL/PHP/Ajax Meeting chat logger</title>
-   <style type="text/css">
-   body          { padding-left:40px; background:#57767F; font-family:arial;}
-   #content       { width:800px; text-align:left; margin-left:60px; }
-   #chatwindow       { border:1px solid #aaaaaa; padding:4px; background:#232D2F; color:white; width:800px; height:500px; overflow: auto; font-family:Arial, Helvetica, sans-serif; font-size: 12px;}
-   .text {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 14px; color: #FFFFFF;}
-    </style>
-   </head>
-   <body>
-   
-   
-   
-   <div id="content">
-         <p id="chatwindow"> </p>
-            <p><span class="text">Autoscroll?</span>
-              <input name="autoscroll" type="radio" value="true" onClick="submit_as(value)">
-                <span class="text">Yes</span>
-              <input name="autoscroll" type="radio" value="false" checked onClick="submit_as(value)">
-                <span class="text">No</span>
-              <input id="chatmsg" type="hidden" onKeyUp="keyup(event.keyCode);">
-            </p>
-            <p>                      <a href="chat.txt" target="_self" class="text">Click for log in txt format</a>
-              <br>
-                </p>
-   </div>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+        <link rel="stylesheet" href="css/index.css" />
+
+        <script src="js/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="css/sweetalert.css" />
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <title>КРАТКИЙ СПРАВОЧНИК ПО LSL</title>
+    </head>
+    <body>
+    <!---start--->
+    <div data-role="page" data-theme="b" id="start">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-title" role="heading" aria-level="1">КРАТКИЙ СПРАВОЧНИК ПО LSL</h1>
+        </div>
+
+        <div data-role="content">
+
+            <a href="#Constants" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Constants</a>
+            <a href="#Events" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Events</a>
+            <a href="#Functions" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Functions</a>
+            <a href="#Flow" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Flow Control</a>
+            <a href="#Operators" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Operators</a>
+            <a href="#States" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >States</a>
+            <a href="#Types" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Types</a>
+
+
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <a href="#start_a" role="button"  data-transition="flip" >A. ЛИНДЕН-ФУНКЦИИ</a>
+            <a href="#start_b" role="button"  data-transition="flip" >B. СОБЫТИЯ</a>
+            <a href="#start_c" role="button"  data-transition="flip" >C. КОНСТАНТЫ</a>
+        </div>
+    </div>
+    <!---stsrt a--->
+    <div data-role="page" data-theme="b" id="start_a">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-title" role="heading" aria-level="1">A. ЛИНДЕН-ФУНКЦИИ</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsible-set" >
+                <ui data-role="listview" data-filter="true" data-filter-placeholder="Поиск..." data-inset="true">
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.1.</span> llAbs</h3>
+                        <p><span class="kw4"> integer</span> <span class="kw5">llAbs</span>(<span class="kw4">integer</span> val);<br>Возвращает абсолютное число</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAbs" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.2.</span> llAcos</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llAcos</span>(<span class="kw4">float</span> val);</p>
+                        <p>Возвращает арккосинус числа</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAcos" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.3.</span> llAddToLandPassList</h3>
+                        <p><span class="kw5">llAddToLandPassList</span>(<span class="kw4">key</span> avatar, <span class="kw4">float</span> hours);</p>
+                        <p>Добавить аватара <span class="kw00">avatar</span> к пропускному списку Этой земли на время <span class="kw00">hours</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAddToLandPassList" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.4.</span> llAdjustSoundVolume</h3>
+                        <p><span class="kw5">llAdjustSoundVolume</span>(<span class="kw4">float</span> volume);</p>
+                        <p>Настроить громкость проигрывания звука прикрепленного к обьекту с этим скриптом и запущенного с помощью <span class="kw5">llPlaySound</span> или <span class="kw5">llLoopSound</span>. Эта функция не дает эффекта если не установлен тригер звука с помошью функции <span class="kw5">llTriggerSound</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAdjustSoundVolume" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.5.</span> llAllowInventoryDrop</h3>
+                        <p><span class="kw5">llAllowInventoryDrop</span>(<span class="kw4">integer</span> add);</p>
+                        <p>Если <span class="kw00">add</span> = <span class="kw2">TRUE</span>, юзер не сможет модифицировать права доступа для выбрасывания из инвентаря </p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAllowInventoryDrop" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.6.</span> llAngleBetween</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llAngleBetween</span>(<span class="kw4">rotation</span> a, <span class="kw4">rotation</span> b);</p>
+                        <p>Возвращает угол в радианах между поворотами <span class="kw00">a</span> и <span class="kw00">b</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAngleBetween" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.7.</span> llApplyImpulse</h3>
+                        <p><span class="kw5">llApplyImpulse</span>(<span class="kw4">vector</span> force, <span class="kw4">integer</span> local);</p>
+                        <p>Применить импульс <span class="kw00">force</span> к локальной системе координат <span class="kw00">local</span> если <span class="kw00">local</span> = <span class="kw2">TRUE</span>. Иначе приложенный импульс будет приложен к глобальной системе координат. Эта функция работает только с физическими обьектами.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlApplyImpulse" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.8.</span> llApplyRotationalImpulse</h3>
+                        <p><span class="kw5">llApplyRotationalImpulse</span>(<span class="kw4">vector</span> force, <span class="kw4">integer</span> local);</p>
+                        <p>Задать импульс вращения <span class="kw00">force</span> к системе координат <span class="kw00">local</span> если <span class="kw00">local</span> = <span class="kw2">TRUE</span>. Иначе приложенный импульс будет приложен к глобальной системе координат. Эта функция работает только с физическими обьектами.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlApplyRotationalImpulse" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.9.</span> llAsin</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llAsin</span>(<span class="kw4">float</span> val);</p>
+                        <p>Возвращает арксинус в радианах</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAsin" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.10.</span> llAtan2</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llAtan2</span>(<span class="kw4">float</span> y, <span class="kw4">float</span> x);</p>
+                        <p>Возвращает <span class="kw00">arctangent2</span> из <span class="kw00">y</span>, <span class="kw00">x</span></p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAtan2" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.11.</span> llAttachToAvatar</h3>
+                        <p><span class="kw5">llAttachToAvatar</span>(<span class="kw4">key</span> avatar, <span class="kw4">integer</span> attachment);</p>
+                        <p>Прикрепить к аватару в точку <span class="kw00">attachment</span>. Требуется <span class="kw2">PERMISSION_ATTACH</span> разрешение аватара на выполнения данной функции.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAttachToAvatar" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.12.</span> llAvatarOnSitTarget</h3>
+                        <p><span class="kw4">key</span> <span class="kw5">llAvatarOnSitTarget</span>(void);</p>
+                        <p>Если аватар сидит на обьекте предназначенном для сидения , возврашается ключ аватара,<span class="kw00">UUID</span>, иначе возвращается <span class="kw2">NULL_KEY</span>. Это единственная возможность обнаружить сидит ли аватар на обьекте определенном с помощью функции <span class="kw5">llSitTarget</span> для сидения.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAvatarOnSitTarget" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.13.</span> llAxes2Rot</h3>
+                        <p><span class="kw4">rotation</span> <span class="kw5">llAxes2Rot</span>(<span class="kw4">vector</span> fwd, <span class="kw4">vector</span> left, <span class="kw4">vector</span> up);</p>
+                        <p>Возвращает свойства вращение обьекта , представленное в осевых координатах. Возвращает поворот системы заданной тремя координатами.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAxes2Rot" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.14.</span> llAxisAngle2Rot</h3>
+                        <p><span class="kw4">rotation</span> <span class="kw5">llAxisAngle2Rot</span>(<span class="kw4">vector</span> axis, <span class="kw4">float</span> angle);</p>
+                        <p>Возвращает поворот <span class="kw4">rotation</span> сгенерированный по углу <span class="kw00">angle</span> на оси <span class="kw00">axis</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlAxisAngle2Rot" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.15.</span> llBase64ToString</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llBase64ToString</span>(<span class="kw4">string</span> str);</p>
+                        <p>Конвертирует строку <span class="kw00">Base 64 string</span> в обычную строку. Если преабразование создает непонятный символ то функция конвертирует его в пробел.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlBase64ToString" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.16.</span> llBreakAllLinks</h3>
+                        <p><span class="kw5">llBreakAllLinks</span>(void);</p>
+                        <p>Разорвать связь всех обьектов в установленной связи(<span class="kw00">залинкованых или обьединеных в оди составной</span>). Требует получения <span class="kw2">PERMISSION_CHANGE_LINKS</span> разрешения.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlBreakAllLinks" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.17.</span> llBreakLink</h3>
+                        <p><span class="kw5">llBreakLink</span>(<span class="kw4">integer</span> linknum);</p>
+                        <p>Разорвать связь с сгрупированным(<span class="kw00">залинкованным</span>) обьектом <span class="kw00">linknum</span>. Требует получения <span class="kw2">PERMISSION_CHANGE_LINKS</span> разрешения после которого у нас будет право на разгрупировку.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlBreakLink" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.18.</span> llCSV2List</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llCSV2List</span>(<span class="kw4">string</span> src);</p>
+                        <p>Создать список <span class="kw00">list</span> из строки <span class="kw00">srс</span> , данные в которой перечисляются через запятую.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlCSV2List" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.19.</span> llCeil</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llCeil</span>(<span class="kw4">float</span> val);</p>
+                        <p>Возвращает наибольшее <span class="kw00">integer</span> значение <span class="kw00">return &gt;= val</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlCeil" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.20.</span> llCloseRemoteDataChannel</h3>
+                        <p><span class="kw5">llCloseRemoteDataChannel</span>(<span class="kw4">key</span> channel);</p>
+                        <p>Закрывает <span class="kw00">XML-RPC</span> канал открытый с помощью функции <span class="kw5">llOpenRemoteDataChannel</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlCloseRemoteDataChannel" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.21.</span> llCloud</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llCloud</span>(<span class="kw4">vector</span> offset);</p>
+                        <p>Возвращает плотность облака по текущим координатам смещенным на вектор <span class="kw00">offset</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlCloud" target="_blank"><img src="img/Emblem-important.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.22.</span> llCollisionFilter</h3>
+                        <p><span class="kw5">llCollisionFilter</span>(<span class="kw4">string</span> name, <span class="kw4">key</span> id, <span class="kw4">integer</span> accept);</p>
+                        <p>Если допуск <span class="kw00">accept</span> == <span class="kw2">TRUE</span>, допускается только столкновение с обьектом <span class="kw00">name</span> и <span class="kw00">id</span>, иначе с обьектом без имени <span class="kw00">name</span> или <span class="kw00">id</span>. Спецификаторы могут принимать любую последовательность или <span class="kw2">NULL_KEY</span> если не нужен фильтр на передачу параметра.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlCollisionFilter" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.23.</span> llCollisionSound</h3>
+                        <p><span class="kw5">llCollisionSound</span>(<span class="kw4">string</span> impact_sound, <span class="kw4">float</span> impact_volume);</p>
+                        <p>Выключить звук столкновения по умолчанию, и заменить звуком удара с <span class="kw00">impact_sound</span> находящимся в <span class="kw00">object inventory</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlCollisionSound" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.24.</span> llCollisionSprite</h3>
+                        <p><span class="kw5">llCollisionSprite</span>(<span class="kw4">string</span> impact_sprite);</p>
+                        <p>Запретить появление спрайта при столкновения установленный по умолчанию, заменить толчковый спрайт на установленный по умолчанию <span class="kw00">impact_sprite</span> из инвентаря обьекта. Только запретить спрайт столкновения установленный по умолчанию если строка пуста.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlCollisionSprite" target="_blank"><img src="img/Emblem-important-red.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.25.</span> llCos</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llCos</span>(<span class="kw4">float</span> theta);</p>
+                        <p>Возвращает косинус угла <span class="kw00">theta</span> в заданного в радианах</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlCos" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.26.</span> llCreateLink</h3>
+                        <p><span class="kw5">llCreateLink</span>(<span class="kw4">key</span> target, <span class="kw4">integer</span> parent);</p>
+                        <p>Создает связь(<span class="kw00">линк</span>) обьекта с другим обектом по его ключу <span class="kw00">target</span>. Требуется получить разрешение <span class="kw2">PERMISSION_CHANGE_LINKS</span>. Если параметр <span class="kw00">parent</span> = <span class="kw2">TRUE</span>, то обьект прикрепится к корневому обьекту.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlCreateLink" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.27.</span> llDeleteSubList</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llDeleteSubList</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> start, <span class="kw4">integer</span> end);</p>
+                        <p>Удаляет элементы из списка <span class="kw00">src</span> начиная с позиции <span class="kw00">start</span> и заканчивая позицией <span class="kw00">end</span>. Если промежуток между конечной и начальной позицией равен <span class="kw00">0</span>,<span class="kw00">-1</span> то удалится весь список, если <span class="kw00">0</span>,<span class="kw00">0</span> то удалится первый элемент , если напимер начальная позиция больше конечной то удалится все (<span class="kw00">включая и позиции старта и конца</span>)кроме того что было межу этими позициями.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDeleteSubList" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.28.</span> llDeleteSubString</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llDeleteSubList</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> start, <span class="kw4">integer</span> end);</p>
+                        <p>Удаляет элементы из списка <span class="kw00">src</span> начиная с позиции <span class="kw00">start</span> и заканчивая позицией <span class="kw00">end</span>. Если промежуток между конечной и начальной позицией равен <span class="kw00">0</span>,<span class="kw00">-1</span> то удалится весь список, если <span class="kw00">0</span>,<span class="kw00">0</span> то удалится первый элемент , если напимер начальная позиция больше конечной то удалится все (<span class="kw00">включая и позиции старта и конца</span>)кроме того что было межу этими позициями.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDeleteSubString" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.29.</span> llDetachFromAvatar</h3>
+                        <p><span class="kw5">llDetachFromAvatar</span>(<span class="kw4">key</span> avatar);</p>
+                        <p>Отсоединяет от автара присоединеную к нему вещь содержащую этот скрипт с этой функцией по его <span class="kw00">ID</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetachFromAvatar" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.30.</span> llDetectedGrab</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llDetectedGrab</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает вектор мгновенного движения обнаруженного обьекта по его номеру обнаружения. (<span class="kw00">не ID</span>) . Возвращает <span class="kw00">&lt;0,0,0&gt;</span> если номер не действительный.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedGrab" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.31.</span> llDetectedGroup</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llDetectedGroup</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает <span class="kw00">целое число</span>, которое является <span class="kw2">TRUE</span>, если обнаружен объект или агент имеет такую ​​же активную группу как объект, содержащих сценарий. В противном случае возвращается <span class="kw2">FALSE</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedGroup" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.32.</span> llDetectedKey</h3>
+                        <p><span class="kw4">key</span> <span class="kw5">llDetectedKey</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает ключ(<span class="kw00">UUID</span>) обнаруженного обьекта по его номеру обнаружения(<span class="kw00">маркеру</span>) <span class="kw00">number</span>. Возвращает <span class="kw2">NULL_KEY</span> если номер не действительный.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedKey" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.33.</span> llDetectedLinkNumber</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llDetectedLinkNumber</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает номер обьединеного(<span class="kw00">залинкованного</span>) обьекта по которому было произведено нажатие и в результате чего было запущенно <span class="kw00">touches</span> событие. <span class="kw00">0</span> - если обьект не залинкован(<span class="kw00">необнаружен</span>), <span class="kw00">1</span> - если корневой обьект, <span class="kw00">2</span>,<span class="kw00">3</span>,<span class="kw00">4</span>... и т.д. - если обьект дочерний .</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedLinkNumber" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.34.</span> llDetectedName</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llDetectedName</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает имя по номеру обнаружения <span class="kw00">number</span> обьекта. Возвращает пустую строку если номер не действительный и не совпадает с обнаруженными обьтектами.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedName" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.35.</span> llDetectedOwner</h3>
+                        <p><span class="kw4">key</span> <span class="kw5">llDetectedOwner</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает ключ(<span class="kw00">UUID</span>) обнаруженного обьекта владельца по номеру обнаружения <span class="kw00">number</span>. Возвращает <span class="kw00">NULL_KEY</span> если номер недействительный.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedOwner" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.36.</span> llDetectedPos</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llDetectedPos</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает положение обнаруженного обьекта по его номеру обнаружения <span class="kw00">number</span>.Возвращает <span class="kw00">&lt;0,0,0&gt;</span> если <span class="kw00">number</span> недействительный.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedPos" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.37.</span> llDetectedRot</h3>
+                        <p><span class="kw4">rotation</span> <span class="kw5">llDetectedRot</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает поворот обнаруженного обьекта по его номеру обнаружения <span class="kw00">number</span>.Возвращает <span class="kw00">&lt;0,0,0,1&gt;</span> если <span class="kw00">number</span> недействительный.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedRot" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.38.</span> llDetectedType</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llDetectedType</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает тип обнаруженного обьекта по его номеру обнаружения(<span class="kw00">маркеру</span>) <span class="kw00">number</span>. Тип является битовым полем содержащим в себе одну или несколько <span class="kw00">констант</span> (<span class="kw2">AGENT</span>, <span class="kw2">ACTIVE</span>, <span class="kw2">PASSIVE</span>, <span class="kw2">SCRIPTED</span>). Возвращает <span class="kw00">0</span> если указанный маркер <span class="kw00">number</span> недействительный(<span class="kw00">т.е. Указан маркер несуществующего обьекта</span>).</p>
+                        <p>Пример:</p>
+                        <p><span class="kw4">integer</span> type = <span class="kw5">llDetectedType</span>(0);<span class="co1">//получаем параметр состояния обекта</span></p>
+                        <p><span class="kw1">if</span> (type &amp; <span class="kw2">AGENT</span>)<span class="co1">//сравниваем с помощю побитового И</span></p>
+                        <p>{</p>
+                        <p>// ...do stuff with the agent</p>
+                        <p>}</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedType" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.39.</span> llDetectedVel</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llDetectedVel</span>(<span class="kw4">integer</span> number);</p>
+                        <p>Возвращает вектор скорости обнаруженного обьекта по его номеру обнаружения(<span class="kw00">маркеру</span>) <span class="kw00">number</span>.Возвращает <span class="kw00">&lt;0,0,0&gt;</span> если <span class="kw00">number</span> недействительный.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDetectedVel" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.40.</span> llDialog</h3>
+                        <p><span class="kw5">llDialog</span>(<span class="kw4">key</span> avatar, <span class="kw4">string</span> message, <span class="kw4">list</span> buttons, <span class="kw4">integer</span> channel);</p>
+                        <p>Открывает <span class="st0">"бокс сообщения"</span> в верхнем правом углу для данного аватара и выводит на экран сообщение. В сообщение может входить до <span class="kw00">12</span> кнопок которые определяются в списке <span class="kw00">buttons</span>. Когда аватар нажимает на кнопку имя кнопки передается по определенному каналу <span class="kw00">channel</span>. Каналы используются такиеже как функцией <span class="kw5">llSay</span>(), таким образом канал <span class="kw00">0</span> может быть услышан каждым если он находится рядом так как это общественный канал.</p>
+                        <p><span class="kw5">LLDialog</span>(who, <span class="st0">"Are you a boy or a girl?"</span>, [ <span class="st0">"Boy"</span>, <span class="st0">"Girl"</span> ], 4913);</p>
+                        <p><span class="kw5">LLDialog</span>(who, <span class="st0">"This shows only an OK button."</span>, [], 192);</p>
+                        <p><span class="kw5">llDialog</span>(who, <span class="st0">"This chats so you can hear it."</span>, [<span class="st0">"Hooray"</span>], 0);</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDialog" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.41.</span> llDie</h3>
+                        <p><span class="kw5">llDie</span>(void);</p>
+                        <p>Удалить обьект содержащий этот скрипт.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDie" target="_blank"><img src="img/Emblem-important-red.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.42.</span> llDumpList2String</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llDumpList2String</span>(<span class="kw4">list</span> src, <span class="kw4">string</span> separator);</p>
+                        <p>Создает строку из списка <span class="kw00">SRC</span> используя <span class="kw00">SEPARATOR</span> как разделитель элементов списка в строке</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlDumpList2String" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.43.</span> llEscapeURL</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llEscapeURL</span>(<span class="kw4">string</span> url);</p>
+                        <p>Возвращает строку, которая является сбежал/закодированную версию <span class="kw00">URL</span>, заменив пробелы на <span class="kw00">"%20"</span> и т. д..</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlEscapeURL" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.44.</span> llEdgeOfWorld</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llEdgeOfWorld</span>(<span class="kw4">vector</span> pos, <span class="kw4">vector</span> dir);</p>
+                        <p>Возвращает <span class="kw2">TRUE</span> если линия от начальных координат <span class="kw00">pos</span> до конечных координат <span class="kw00">dir</span> выходит за края текущего сима (<span class="kw00">земли</span>). Возвращает <span class="kw2">FALSE</span> если концы линии находятся за пределами сима.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlEdgeOfWorld" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.45.</span> llEjectFromLand</h3>
+                        <p><span class="kw5">llEjectFromLand</span>(<span class="kw4">key</span> pest);</p>
+                        <p>Выбросить вредителя <span class="kw00">pest</span> с земельной собственности по его ключу(<span class="kw00">UUID</span>).</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlEjectFromLand" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.46.</span> llEmail</h3>
+                        <p><span class="kw5">llEmail</span>(<span class="kw4">string</span> address, <span class="kw4">string</span> subject, <span class="kw4">string</span> message);</p>
+                        <p>Послать <span class="kw00">email</span> по адрессу <span class="kw00">address</span> от субьекта <span class="kw00">subject</span> и сообщение <span class="kw00">message</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlEmail" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.47.</span> llEuler2Rot</h3>
+                        <p><span class="kw4">rotation</span> <span class="kw5">llEuler2Rot</span>(<span class="kw4">vector</span> vec);</p>
+                        <p>Возвращает поворот представленный в системе <span class="fit">Эйлера</span> <span class="kw00">vec</span>. </p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlEuler2Rot" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.47.</span> llEuler2Rot</h3>
+                        <p><span class="kw4">rotation</span> <span class="kw5">llEuler2Rot</span>(<span class="kw4">vector</span> vec);</p>
+                        <p>Возвращает поворот представленный в системе <span class="fit">Эйлера</span> <span class="kw00">vec</span>. </p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlEuler2Rot" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.48.</span> llFabs</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llFabs</span>(<span class="kw4">float</span> val);</p>
+                        <p>Возвращает абсолютное значение числа <span class="kw00">val</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlFabs" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.49.</span> llFloor</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llFloor</span>(<span class="kw4">float</span> val);</p>
+                        <p>Возвращает наибольшее <span class="kw00">integer</span> значение <span class="kw00">&lt;</span>= <span class="kw00">val</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlFloor" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.50.</span> llFrand</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llFrand</span>(<span class="kw4">float</span> mag);</p>
+                        <p>Возвращает случайное число в диапазоне [<span class="kw00">0</span>, <span class="kw00">mag</span>).</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlFrand" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.51.</span> llGetAccel</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetAccel</span>(void);</p>
+                        <p>Получает ускорение.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetAccel" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.52.</span> llGetAttached</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llGetAttached</span>(void);</p>
+                        <p>Возвращает точку крепления обьекта к аватару или возвращает <span class="kw00">0</span> если обьект не прикреплен.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetAttached" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.53.</span> llGetAgentInfo</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llGetAgentInfo</span>(<span class="kw4">key</span> id);</p>
+                        <p>Возвращает информацию о данном агенте по его <span class="kw00">ID</span>. Возвращает в виде битового поля которое можно прочитать с помощью констант <span class="kw00">agent info constants</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetAttached" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.54.</span> llGetAgentSize</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetAgentSize</span>(<span class="kw4">key</span> id);</p>
+                        <p>Если ключ <span class="kw00">id</span> агента находится в этомже симе что и обьект с этим скриптом, возвращает размер аватара.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetAgentSize" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.55.</span> llGetAlpha</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetAlpha</span>(<span class="kw4">integer</span> face);</p>
+                        <p>Возвращает коофициент прозрачности <span class="kw00">alpha</span> данной стороны <span class="kw00">face</span>. Если сторона <span class="kw00">face</span> является <span class="kw2">ALL_SIDES</span> возвращает значение среднего числа альфы всех сторон.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetAlpha" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.56.</span> llGetAndResetTime</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetAndResetTime</span>(void);</p>
+                        <p>Возвращает в секундах продолжительность во внутренем хронометре скрипта. Таймер сбрасывается в ноль при вызове этой функции. Таймер также сбрасывает <span class="kw00">on rez</span>, симулятор перезапускается , скрипт сбрасывается , и вызывается функция <span class="kw5">llResetTime</span>. Выберите функцию <span class="kw5">llSetTimerEvent</span> если вы хотите надежный механизм выбора времени.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetAndResetTime" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.57.</span> llGetAnimation</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llGetAnimation</span>(<span class="kw4">key</span> id);</p>
+                        <p>Возвращает имя анимации происхдящей в данное с аватаром по его <span class="kw00">ID</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetAnimation" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.58.</span> llGetAnimationList</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llGetAnimationList</span>(<span class="kw4">key</span> id);</p>
+                        <p>Возвращает список анимаций аватара происхдящих в данное время по его <span class="kw00">ID</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetAnimationList" target="_blank"><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.59.</span> llGetBoundingBox</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llGetBoundingBox</span>(<span class="kw4">key</span> object);</p>
+                        <p>Возвращает ограничивающий прямоугольник вокруг обьекта <span class="kw00">object</span> (<span class="kw00">включающий любой соединеный примитив</span>) по отношению к корневому примитиву. Возвращает значение в списке <span class="kw4">list</span> в форме&#160;: [ (<span class="kw4">vector</span>) <span class="kw00">min_corner</span>, (<span class="kw4">vector</span>) <span class="kw00">max_corner</span> ]</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetBoundingBox" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.60.</span> llGetCenterOfMass</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetCenterOfMass</span>(void);</p>
+                        <p>Возвращает центр массы коренного обьекта.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetCenterOfMass" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.61.</span> llGetColor</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetColor</span>(<span class="kw4">integer</span> face);</p>
+                        <p>Возвращает цвет данной стороны <span class="kw00">face</span>. Если сторона <span class="kw00">face</span> является <span class="kw2">ALL_SIDES</span> возвращает среднее значение каждого цветового канала.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetColor" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.62.</span> llGetCreator</h3>
+                        <p><span class="kw4">key</span> <span class="kw5">llGetCreator</span>(void);</p>
+                        <p>Возвращает <span class="kw00">ключ</span> создателя обьекта который имеет этот скрипт.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetCreator" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.63.</span> llGetDate</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llGetDate</span>(void);</p>
+                        <p>Возвращает текущую <span class="kw00">UTC</span>(<span class="kw00">универсальную</span>) дату в виде <span class="kw00">--- YYYY-MM-DD</span>.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetDate" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.64.</span> llGetEnergy</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetEnergy</span>(void);</p>
+                        <p>Возвращает энергию обьекта как процент от максимума.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetEnergy" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.65.</span> llGetForce</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetForce</span>(void);</p>
+                        <p>Возвращает поток силы если скрипт физический.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetForce" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.66.</span> llGetFreeMemory</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llGetFreeMemory</span>(void);</p>
+                        <p>Возвращает доступное пространство скриптового потока(<span class="kw00">т.е. Оставшуюся свободную память которую может использовать текущий скрипт</span>).</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetFreeMemory" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.67.</span> llGetGeometricCenter</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetGeometricCenter</span>(void);</p>
+                        <p>Возвращает геометрический центр сгрупированных(<span class="kw00">залинкованых</span>) и прикрепленных к аватару обьектов.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetGeometricCenter" target="_blank"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.68.</span> llGetGMTclock</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetGMTclock</span>(void);</p>
+                        <p>Возвращает время в секундах начиная с <span class="kw00">GMT</span> полночи.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetGMTclock" class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.69.</span> llGetInventoryCreator</h3>
+                        <p><span class="kw4">key</span> <span class="kw5">llGetInventoryCreator</span>(<span class="kw4">string</span> name);</p>
+                        <p>Возвращает ключ(<span class="kw00">идентификатор</span>) создателя обьекта <span class="kw00">name</span> находящегося в личном инвентаре текущего обьекта.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryCreator"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3><span class="kw00">A.70.</span> llGetInventoryKey</h3>
+                        <p><span class="kw4">key</span> <span class="kw5">llGetInventoryKey</span>(<span class="kw4">string</span> name);</p>
+                        <p>Возвращает ключ по заданному имени <span class="kw00">name</span> записи(<span class="kw00">или обьекта</span>) в личном инвентаре текущего обьекта.</p>
+                        <p><a href="http://wiki.secondlife.com/wiki/LlGetInventoryKey"  class="hr" ><img src="img/bug.png" width="22" height="22" class="leftimg"><span class="kw01">wiki</span></a></p>
+                    </div>
+                </ui>
+            </div>
+
+
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <a href="#start" role="button"  data-transition="flip" >HOME</a>
+            <a href="#start_b" role="button"  data-transition="flip" >B. СОБЫТИЯ</a>
+            <a href="#start_c" role="button"  data-transition="flip" >C. КОНСТАНТЫ</a>
+        </div>
+    </div>
+    <!---stsrt b--->
+    <div data-role="page" data-theme="b" id="start_b">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-title" role="heading" aria-level="1">B. СОБЫТИЯ</h1>
+        </div>
+
+        <div data-role="content">
+
+            <a href="#Constants" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Constants</a>
+
+
+
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <a href="#start" role="button"  data-transition="flip" >HOME</a>
+            <a href="#start_a" role="button"  data-transition="flip" >A. ЛИНДЕН-ФУНКЦИИ</a>
+            <a href="#start_c" role="button"  data-transition="flip" >C. КОНСТАНТЫ</a>
+        </div>
+    </div>
+    <!---stsrt c--->
+    <div data-role="page" data-theme="b" id="start_c">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-title" role="heading" aria-level="1">C. КОНСТАНТЫ</h1>
+        </div>
+
+        <div data-role="content">
+
+            <a href="#Constants" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Constants</a>
+
+
+
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <a href="#start" role="button"  data-transition="flip" >HOME</a>
+            <a href="#start_a" role="button"  data-transition="flip" >A. ЛИНДЕН-ФУНКЦИИ</a>
+            <a href="#start_b" role="button"  data-transition="flip" >B. СОБЫТИЯ</a>
+        </div>
+    </div>
+    <!---фрейм--->
+    <div data-role="page" data-theme="b" id="start_f">
+        <div data-role="header" data-position="fixed">
+            <a class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-left" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Second Life® Wiki</h1>
+        </div>
+
+        <div data-role="content">
+
+            <div id="my_if"></div>
+
+
+
+        </div>
+
+
+    </div>
+    <!---диалоги--->
+    <div  data-role="dialog" id="Constants" data-url="dialog1" tabindex="0" >
+
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Constants</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <p>
+            Константы в LSL это заранее заданные глобальные преременные определенного типа которые используются для удобства восприятия каких либо числовых значений.
+        </p>
+        <p>Константы описаны в приложении : <b>«C. КОНСТАНТЫ»</b></p>
+    </div>
+    <div  data-role="dialog" id="Events" data-url="dialog1" tabindex="0" >
+
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Events</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <p>
+            LSL событийный язык и в любой вашей программе должно быть хотябы одно обьявленное и описанное событие. Все команды языка бутут выполнятся в теле события.
+        </p>
+        <p>События описаны в приложении&#160;: <b>«B. СОБЫТИЯ»</b></p>
+    </div>
+    <div  data-role="dialog" id="Functions" data-url="dialog1" tabindex="0" >
+
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Functions</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <p>Набор из более чем трехсот функций опысывается в приложении: <b>«A. БИБЛИОТЕЧНЫЕ ЛИНДЕН-ФУНКЦИИ»</b></p>
+    </div>
+    <div  data-role="dialog" id="Flow" data-url="dialog1" tabindex="0" >
+
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Flow Control</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <p>Команды контроля выполнения программы:</p>
+        <p>&#160;</p>
+        <p><b>if</b>(условие){программа выполняется если истина} <b>else </b>{программа выполняется если ложь}</p>
+        <p><b>if</b>(условие){программа выполняется если истина}</p>
+        <p>&#160;</p>
+        <p><b>while</b>(условие){программа выполняющаяся циклически пока условие не будет истинно - условие проверяется перед итерацией}</p>
+        <p><b>do</b>{программа выполняющаяся циклически пока условие не будет истинно - условие проверяется после итеррации}<b>while</b>(условие)</p>
+        <p><b>for</b>(инициализация переменной; условие; операция над переменной например инкремент){программа выполняющаяся циклически пока условие не будет истинно - условие проверяется после итеррации}</p>
+        <p>&#160;</p>
+        <p><b>jump</b> метка_места_перехода;</p>
+        <p>...</p>
+        <p>...</p>
+        <p>метка_места_перехода@;</p>
+        <p>...</p>
+        <p><b>return</b> значение; вернуть значение функции если функция была обьявлена как функция возвращающая какоето значение.</p>
+        <p><b>return; </b>выход из цикла, из функции , из события , после выхода продолжается выполнение дальнейшей программы.</p>
+
+    </div>
+    <div  data-role="dialog" id="Operators" data-url="dialog1" tabindex="0" >
+
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Operators</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <p>Список операторов:</p>
+        <p>() [] . Parenthesis, Brackets, and Dot do this second (do this first)</p>
+        <p>(type) Typecasting message = "The result is:" + (string) result;</p>
+        <p>! ~ ++ -- NOT, One's Complement, Increment, Decrement counter++;</p>
+        <p>* /&#160;% Multiply, Divide, Modulus rollover = (count + 1)%5;</p>
+        <p>- Subtraction one = 3 - 2;</p>
+        <p>+ Addition or joining Strings two = 1+1; text = "Hello" + "World"; myList = [1, 2, 3] + [4, 5]; newList = oldList + addList;</p>
+        <p>&lt;&lt; &gt;&gt; Left Shift, Right Shift eight = 4 &lt;&lt; 1;</p>
+        <p>&lt; &lt;= &gt; &gt;= Less Than, Less Than Or Equal To, isFalse = (6 &lt;= 4);</p>
+        <p>&amp; Bitwise AND zero = 4 &amp; 2;four = 4 &amp; 4;</p>
+        <p>^ Bitwise XOR zero = 4 ^ 4; six = 4 ^ 2;</p>
+        <p>| Bitwise OR four = 4 | 4; six = 4 | 2;</p>
+        <p>&amp;&amp; Comparison AND isFalse = (FALSE &amp;&amp; TRUE);</p>
+        <p>|| Comparison OR isTrue = (FALSE || TRUE);</p>
+        <p>= += -= *= /=&#160;%= Assignment four = 4;</p>
+    </div>
+    <div  data-role="dialog" id="States" data-url="dialog1" tabindex="0" >
+
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">States</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <p>В любой программе написанной на LSL обязательно должно быть хотябы одно состояние. Начальное состояние в котором обявляются и описываются все события называется <b>default </b>состоянием.</p>
+        <p>Форма записи состояний:</p>
+        <p><b>default</b>{событие1{}событие2{}событиеN{}} -- так описывается начальное состояние</p>
+        <p><b>state</b> состояние1{событие1{}событие2{}событиеN{}} -- так описывается любое состояние определенное пользователем</p>
+        <p>Вызов любого из обьявленных и описанных состояних может быть произведен из любого места в программе описанной в событиях.</p>
+        <p>&#160;</p>
+        <p>Форма вызова события:</p>
+        <p><b>default</b></p>
+        <p>{</p>
+        <p>событие1 { ... }</p>
+        <p>событие2 { ...&#160;; <b>state</b> состояние2&#160;; ...&#160;; }</p>
+        <p>событиеN { ... }</p>
+        <p>}</p>
+        <p>&#160;</p>
+        <p><b>state </b>состояние2</p>
+        <p>{</p>
+        <p>событие1 { ... }</p>
+        <p>событие2 { ...&#160;; <b>state default</b>&#160;; ...&#160;; }</p>
+        <p>событиеN { ... }</p>
+        <p>}</p>
+        <p>Обьявление состояния default не требует ключевого слова state.</p>
+    </div>
+    <div  data-role="dialog" id="Types" data-url="dialog1" tabindex="0" >
+
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Types</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <p>Типы:</p>
+        <p><b>integer </b>- целочисленный тип данных</p>
+        <p><b>float </b>- тип данных с плавающей точкой</p>
+        <p><b>string </b>- строковый тип данных а также и символьный</p>
+        <p><b>key </b>- тип данных использующийся для хранения уникальных ключей ID</p>
+        <p><b>vector </b>- тип данных использующийся для хранения коордитат или схожих данных в виде &lt; x, y, z &gt;</p>
+        <p><b>rotation </b>- тип данных использующийся для хранения угловых параметров или схожих данных в виде &lt; x, y, z, s &gt;</p>
+        <p><b>list </b>- смешаный тип данных обьеденяющий в себе понятия структуры и масива. Можно хранить списки любых типов данных в любом порядке.</p>
+        <p><b>Variables </b></p>
+        <p>Примеры записи значений переменных разных типов:</p>
+        <p><b>integer </b>- 1234567</p>
+        <p><b>float </b>- 123456.789</p>
+        <p><b>string </b>- "stroka"</p>
+        <p><b>key </b>- "a822ff2b-ff02-461d-b45d-dcd10a2de0c2"</p>
+        <p><b>vector </b>- &lt; 0.35, 1.456, 234.23 &gt;</p>
+        <p><b>rotation</b> - &lt; 0.35, 1.456, 234.23, 12.3 &gt;</p>
+        <p><b>list </b>- [1234567, "stroka", "a822ff2b-ff02-461d-b45d-dcd10a2de0c2", &lt; 0.35, 1.456, 234.23, 12.3 &gt;, &lt; 0.35, 1.456, 234.23 &gt;]</p>
+        <p><b>Errors </b></p>
+        <p>Сообщения о ошибках происходящих в работе програмы отправляются по специальному каналу DEBUG_CHANNEL и они все будут отображатся в тексте чата.</p>
+
+    </div>
+    <!---диалоги--->
+
+    <script>
+        $('.hr').click(function(e) {
+            e.preventDefault(); // Предотвратить href от перенаправления напрямую
+            var linkURL = $(this).attr("href");
+            //warnBeforeRedirect(linkURL);
+           //$("#my_if").html("<iframe src='' width='99%' height='410' id='my_if1'></iframe>" );
+            //$("#my_if1").content().append("linkURL");
+            $("#my_if").html("<iframe src="+linkURL+" width='100%' height='700' id='my_if1'></iframe>" );
+            window.location.href = "#start_f";
+        });
+//        function warnBeforeRedirect(linkURL) {
+//            swal({
+//                title: "Скопируйте ссылку:",
+//                text: linkURL + " Либо откройте её в окне:",
+//                type: "success", //"warning",
+//                showCancelButton: true
+//            }, function() {
+//                // Перенаправить пользователя
+//                window.location.href = "#start_f";
+//            });
+
+
+    </script>
+    </body>
+
 </html>
-
-
-<script type="text/javascript">
-/****************************************************************
-* Most Simple Ajax Chat Script (www.linuxuser.at)      *
-* Version: 3.1                     *
-*                         *
-* Author: Chris (chris[at]linuxuser.at)         *
-* Contributors: Derek, BlueScreenJunky (http://forums.linuxuser.at/viewtopic.php?f=6&t=17)
-*                        *
-* Licence: GPLv2                  *
-* Modified by Adelle Fitsgerald            *
-****************************************************************/
-
-/* Settings you might want to define */
-   var waittime=800;   
-   var autoscroll=false;   
-
-
-/* Internal Variables & Stuff */
-   /*chatmsg.focus()*/
-   document.getElementById("chatwindow").innerHTML = "loading...";
-
-   var xmlhttp = false;
-   var xmlhttp2 = false;
-
-
-/* Request for Reading the Chat Content */
-function ajax_read(url) {
-   if(window.XMLHttpRequest){
-      xmlhttp=new XMLHttpRequest();
-      if(xmlhttp.overrideMimeType){
-         xmlhttp.overrideMimeType('text/xml');
-      }
-   } else if(window.ActiveXObject){
-      try{
-         xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
-      } catch(e) {
-         try{
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-         } catch(e){
-         }
-      }
-   }
-
-   if(!xmlhttp) {
-      alert('Giving up :( Cannot create an XMLHTTP instance');
-      return false;
-   }
-
-   xmlhttp.onreadystatechange = function() {
-   if (xmlhttp.readyState==4) {
-      document.getElementById("chatwindow").innerHTML = xmlhttp.responseText;
-
-      zeit = new Date();
-      ms = (zeit.getHours() * 24 * 60 * 1000) + (zeit.getMinutes() * 60 * 1000) + (zeit.getSeconds() * 1000) + zeit.getMilliseconds();
-      intUpdate = setTimeout("ajax_read('chat.txt?x=" + ms + "')", waittime)
-      }
-   }
-
-   xmlhttp.open('GET',url,true);
-   xmlhttp.send(null);
-
-   /* Auto scroll */
-   if(autoscroll == "true") {
-   var objDiv = document.getElementById("chatwindow");
-   objDiv.scrollTop = objDiv.scrollHeight;
-   }
-   else if(autoscroll == "false") {
-   var objDiv = document.getElementById("chatwindow");
-   objDiv.scrollTop = objDiv.scrollTop;
-   }
-   
-
-}
-
-function submit_as(value){
-   autoscroll = value;
-}
-
-/* Start the Requests! ;) */
-var intUpdate = setTimeout("ajax_read('chat.txt')", waittime);
-
-
-</script>
