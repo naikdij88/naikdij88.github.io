@@ -1,4 +1,9 @@
-
+.hidden{
+    opacity:0;
+}
+.visible{
+    opacity:1;
+}
 .leftimg {
     float:left; /* Выравнивание по левому краю */
     margin: 0px 5px 5px 0; /* Отступы вокруг картинки */
