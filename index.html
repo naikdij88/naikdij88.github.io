@@ -18,6 +18,8 @@
 		<link rel="shortcut icon" href="img/favicon.ico" />
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/buzz.min.js"></script>
+        <script type="text/javascript" src="js/soundmanager2.js"></script>
         <link rel="stylesheet" href="css/index.css" />
         <link rel="stylesheet" href="css/animate.css" />
         <title>КРАТКИЙ СПРАВОЧНИК ПО LSL</title>
@@ -27,6 +29,8 @@
     <div data-role="page" data-theme="b" id="start">
         <div data-role="header" data-position="fixed">
             <h1 class="ui-title" role="heading" aria-level="1">КРАТКИЙ СПРАВОЧНИК ПО LSL</h1>
+            <a href="#Radio" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+            <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
         </div>
 
         <div data-role="content">
@@ -52,7 +56,8 @@
     <div data-role="page" data-theme="b" id="start_a">
         <div data-role="header" data-position="fixed">
             <h1 class="ui-title" role="heading" aria-level="1">A. ЛИНДЕН-ФУНКЦИИ</h1>
-
+            <a href="#Radio" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+            <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
         </div>
         <div data-role="content" >
             <div data-role="collapsible-set">
@@ -693,40 +698,128 @@
                         <p>&lt;37.341, 195.283, 31.239&gt;] <span class="co1">// PRIM_POSITION</span></p>
                         <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetPrimitiveParams"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
                     </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetRegionCorner</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetRegionCorner</span>(void);</p>
+                        <p>Возвращает вектор <span class="kw00">юго-западного</span> угла текущего региона.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetRegionCorner"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetRegionFPS</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetRegionFPS</span>(void);</p>
+                        <p>Возвращает среднюю <span class="kw00">частоту кадров</span> в текущем регионе (<span class="kw00">тоесть возвращает FPS текущего сима</span>).</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetRegionFPS"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetRegionName</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llGetRegionName</span>(void);</p>
+                        <p>Возвращает <span class="kw00">имя</span> текущего региона.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetRegionName"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetRegionTimeDilation</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetRegionTimeDilation</span>(void);</p>
+                        <p>Возвращает текущее расширенное <span class="kw00">время</span> в виде числа в промежутке от <span class="kw00">0</span> до <span class="kw00">1</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetRegionTimeDilation"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetRootPosition</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetRootPosition</span>(void);</p>
+                        <p>Возвращает <span class="kw00">глобальное</span> положение коренного обьекта из прикрепленного(<span class="kw00">залинкованного</span>) к нему обьекта в котором находится этот скрипт.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetRootPosition"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetRootRotation</h3>
+                        <p><span class="kw4">rotation</span> <span class="kw5">llGetRootRotation</span>(void);</p>
+                        <p>Возвращает <span class="kw00">глобальное</span> поворот коренного обьекта из прикрепленного(<span class="kw00">залинкованного</span>) к нему обьекта в котором находится этот скрипт.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetRootRotation"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetRot</h3>
+                        <p><span class="kw4">rotation</span> <span class="kw5">llGetRot</span>(void);</p>
+                        <p>Возвращает <span class="kw00">поворот</span> обьекта с этим скриптом.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetRot"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetScale</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetScale</span>(void);</p>
+                        <p>Возвращает <span class="kw00">масштаб</span> обьекта с этим скриптом.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetScale"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetScriptName</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llGetScriptName</span>(void);</p>
+                        <p>Возвращает <span class="kw00">имя</span> текущего скрипта.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetScriptName"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetStartParameter</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llGetStartParameter</span>(void);</p>
+                        <p>Возвращает <span class="kw00">стартовые параметры</span> переданные при вызове функций <span class="kw5">llRezObject</span> или <span class="kw5">llRezAtRoot</span>. Если обьект создан из <span class="kw00">инвентаря агента</span>, то эта функция возвращает <span class="kw00">0</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetStartParameter"  class="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetScriptState</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llGetScriptState</span>(string name);</p>
+                        <p>Установить <span class="kw00">Rest</span> <span class="kw2">TRUE</span> если скипт <span class="kw00">name</span> запущен.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetScriptState"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetStatus</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llGetStatus</span>(<span class="kw4">integer</span> status);</p>
+                        <p>Возвращает значение статуса <span class="kw00">status</span>. Единственное значение будет в виде константы <span class="kw00">status constants</span>. С помощью этой функции можно получить такие <span class="kw00">данные об обьекте</span> как: физический обьект или нет, является ли обьект фантомом, по каким осям заблокирован поворот обьекта, можно ли его передвигать с помощью курсора мышки «Рука» и т.д.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetStatus"  class="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetSubString</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llGetSubString</span>(<span class="kw4">string</span> src, <span class="kw4">integer</span> start, <span class="kw4">integer</span> end);</p>
+                        <p>Возвращает часть строки <span class="kw00">src</span> начиная от стартовой позиции <span class="kw00">start</span> до конечной <span class="kw00">end</span>, таким образом <span class="kw00">0</span>,<span class="kw00">1</span> длина захватывает всю строку и <span class="kw00">0</span>,<span class="kw00">0</span> захватывает первый символ. Использование отрицательного номера <span class="kw00">start</span> и/или <span class="kw00">end</span> подсчитывает в обратном направлении в результате <span class="kw00">0</span>,<span class="kw00">-1</span> захватывает всю строку. Если <span class="kw00">start</span> больше <span class="kw00">end</span> то захватится вся строка за исключением символов в диапазоне от <span class="kw00">start</span> до <span class="kw00">end</span>. Например <span class="kw00">6</span>,<span class="kw00">4</span> захватит всю строку кроме <span class="kw00">5</span> символов.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetSubString"  class="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetSunDirection</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetSunDirection</span>(void);</p>
+                        <p>Возвращает <span class="kw00">вектор направления</span> солнца всимуляторе.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetSunDirection"  class="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetTexture</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llGetTexture</span>(<span class="kw4">integer</span> face);</p>
+                        <p>Возвращает <span class="kw00">имя</span> текстуры с заданой стороны обьекта если такая тектстура присутствует в инвентаре обьекта</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetTexture"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetTextureOffset</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetTextureOffset</span>(<span class="kw4">integer</span> side);</p>
+                        <p>Возвращает <span class="kw00">смещение</span> текстуры на стороне обьекта <span class="kw00">side</span> в <span class="kw00">X</span> и <span class="kw00">Y</span> компонентах вектора.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetTextureOffset"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetTextureRot</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetTextureRot</span>(<span class="kw4">integer</span> side);</p>
+                        <p>Возвращает <span class="kw00">поворот</span> текстуры на стороне <span class="kw00">side</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetTextureRot"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetTextureScale</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetTextureScale</span>(<span class="kw4">integer</span> side);</p>
+                        <p>Возвращает <span class="kw00">маштаб</span> текстуры на стороне <span class="kw00">side</span> в <span class="kw00">X</span> и <span class="kw00">Y</span> компонентах вектора.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetTextureScale"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetTime</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetTime</span>(void);</p>
+                        <p>Возвращает <span class="kw00">второе астрономическое время</span> из внутреннего таймера связанного со скриптом. Таймер сбрасывается <span class="kw00">on rez</span>, симулятор перестартовывает, скрипт сбрасывается, и в вызове <span class="kw5">llGetAndResetTime</span> или <span class="kw5">llResetTime</span>. Выбераем <span class="kw5">llSetTimerEvent</span> если вы хотите надежный временной механизм.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetTime"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetTimeOfDay</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetTimeOfDay</span>(void);</p>
+                        <p>Получить <span class="kw00">время</span> в секундах отсчитывая с полночи в <span class="kw01">SECOND LIFE</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetTimeOfDay"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
 
-                    <!--аним min-->
-                    <script>
-                        $( "h3.min" ).mousemove(function() {
-                            //$( this ).fadeOut( 100 );
-                            //$( this ).fadeIn( 100 );
-                            var nameAnim = 'animated pulse ';
-                            var meth = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-                            $(this).addClass(nameAnim).one(meth,function(){
-                                $(this).removeClass(nameAnim);
-                            });
-                        });
-                    </script>
-                    <!--аним wiki-->
-                    <script>
-                        //$('.m51').addClass('animated shake');
-                        $(function(){
-                            var nameAnim = 'animated flipInX';
-                            var meth = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-                            $('p.m55').on('mouseover',function(){
-                                $('.m55').addClass(nameAnim).one(meth,function(){
-                                    $(this).removeClass(nameAnim);
-                                });
-                            });
-                        });
-                    </script>
-                    <!---номер--->
-                    <script>
 
-                        $('.nambs').each(function(i) {
-                            var number = i + 1;
-                            $(this).text(number+".");
-                        });
-                    </script>
                 </ol>
 
             </div>
@@ -743,6 +836,8 @@
     <div data-role="page" data-theme="b" id="start_b">
         <div data-role="header" data-position="fixed">
             <h1 class="ui-title" role="heading" aria-level="1">B. СОБЫТИЯ</h1>
+            <a href="#Radio" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+            <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
         </div>
 
         <div data-role="content">
@@ -763,6 +858,8 @@
     <div data-role="page" data-theme="b" id="start_c">
         <div data-role="header" data-position="fixed">
             <h1 class="ui-title" role="heading" aria-level="1">C. КОНСТАНТЫ</h1>
+            <a href="#Radio" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+            <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
         </div>
 
         <div data-role="content">
@@ -784,6 +881,7 @@
         <div data-role="header" data-position="fixed">
             <a class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-left" href="#" data-rel="back">Close</a>
             <h1 class="ui-title" role="heading" aria-level="1">Second Life® Wiki</h1>
+            <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
         </div>
 
         <div data-role="content" >
@@ -793,6 +891,77 @@
 
         </div>
 
+    </div>
+    <!--Info--->
+    <div  data-role="dialog" id="Info" data-url="dialog1" tabindex="0" >
+
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Info</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <h2>КРАТКИЙ СПРАВОЧНИК ЯЗЫКА LSL</h2>
+        <p>Linden Scripting Language (LSL) - встроенный в систему скриптовый язык программирования, позволяет добавлять предметам определенные автономные возможности и контролировать поведение объектов. Например, сделать так, чтобы дверь автоматически открывалась, когда к ней кто-то приближается. С помощью LSL создаются не только простые функции, но и проводятся серьезные эксперименты. LSL имеет аналогичный синтаксис с C. <br />
+        </p>
+
+        <p><i>Вся информация о "Linden Scripting Language" является доступной на <a href="http://wiki.secondlife.com/wiki/LSL_Portal" title="LSL Portal" target="_blank">LSLпортале</a>.</i>
+        </p>
+    </div>
+    <!--Radio-->
+    <div  data-role="dialog" id="Radio" data-url="dialog1" tabindex="0" >
+
+        <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+            <h1 class="ui-title" role="heading" aria-level="1">Онлайн Радио</h1>
+        </div>
+        <div role="main" class="ui-contain"></div>
+        <a id="pl"  role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+        <form id="tape-form" action="." method="get" onsubmit="return false">
+            <label for="url-1">Введите URL радио:</label>
+            <input class="label" data-clear-btn="true" name="url-1" id="url-1" type="url" value=""/>
+            <input type="button" value="Воспроизвести" id="add"/>
+        </form>
+        <p>Ctrl+C - скопировать<br>Ctrl+V - вставить<br>Ссылка должна начинаться с http://....<br>Пример: http://206.190.136.212:4967/Live <br>или<br>http://listen1.myradio24.com:9000/6109</p>
+        <script type="text/javascript">
+            soundManager.setup({
+                onready: function() {
+                    var linkURL = document.getElementById('url-1').value;
+                    $('#add').click(function () {
+                        mySound.stop();
+                        var inputURL = document.getElementById('url-1').value,
+                                s = soundManager.getSoundById('sound0');
+                        s.load({
+                            url: inputURL
+                        }).play();
+
+
+                        return false;
+                    });
+                    var ps = 'play';// определяем, что кликнули
+                    var def = "http://206.190.136.212:4967/Live";
+                    var mySound = soundManager.createSound({
+                        url: def
+                    });
+                    $('#pl').click(function () {
+                        if (ps == 'play')//если кликнули по play
+                        {
+                            mySound.play();
+                            ps = 'pause';
+                            $('#pl').text('Стоп');
+                            $('#pl').removeClass('ui-icon-audio');
+                            $('#pl').addClass('ui-icon-delete');
+                        }
+                        else if (ps == 'pause') {//если кликнули по pause
+                            mySound.stop();
+                            ps = 'play';
+                            $('#pl').text('Плей');
+                            $('#pl').removeClass('ui-icon-delete');
+                            $('#pl').addClass('ui-icon-audio');
+                        }
+                    });
+                }
+            });
+        </script>
     </div>
     <!---диалоги--->
     <div  data-role="dialog" id="Constants" data-url="dialog1" tabindex="0" >
@@ -933,8 +1102,7 @@
         <p>Сообщения о ошибках происходящих в работе програмы отправляются по специальному каналу DEBUG_CHANNEL и они все будут отображатся в тексте чата.</p>
 
     </div>
-    <!---скрипт--->
-
+    <!---скрипт фрейм--->
     <script>
         $('.hr').click(function(e) {
             e.preventDefault(); // Предотвратить href от перенаправления напрямую
@@ -956,6 +1124,49 @@
 //                window.location.href = "#start_f";
 //            });
 
+    </script>
+    <!--аним min-->
+    <script>
+        $( "h3.min" ).mousemove(function() {
+            //$( this ).fadeOut( 100 );
+            //$( this ).fadeIn( 100 );
+            var nameAnim = 'animated pulse ';
+            var meth = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            $(this).addClass(nameAnim).one(meth,function(){
+                $(this).removeClass(nameAnim);
+            });
+        });
+    </script>
+    <!--аним wiki-->
+    <script>
+        //$('.m51').addClass('animated shake');
+        $(function(){
+            var nameAnim = 'animated flipInX';
+            var meth = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            $('p.m55').on('mouseover',function(){
+                $('.m55').addClass(nameAnim).one(meth,function(){
+                    $(this).removeClass(nameAnim);
+                });
+            });
+        });
+    </script>
+    <!---номер--->
+    <script>
+
+        $('.nambs').each(function(i) {
+            var number = i + 1;
+            $(this).text(number+".");
+        });
+    </script>
+    <!-- клик ф.-->
+    <script>
+        $(function(){
+            var mySound = new buzz.sound("img/tik.wav",{volume:10});
+            $('.min').click(function(){
+                mySound.play();
+
+            });
+        });
     </script>
     </body>
     <!---меню--->

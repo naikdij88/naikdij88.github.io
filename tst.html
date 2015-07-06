@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name='yandex-verification' content='5f4c9663ef17f0ec' />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Краткий Справочник По LSL" />
+    <meta property="og:description" content="Linden Scripting Language (LSL) - встроенный в систему скриптовый язык программирования, позволяет добавлять предметам определенные автономные возможности и контролировать поведение объектов." />
+    <meta property="og:url" content="http://naikdij88.github.io/" />
+    <meta property="og:image" content="http://naikdij88.github.io/img/osa.png" />
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" src="js/buzz.js"></script>
+    <script type="text/javascript" src="js/soundmanager2.js"></script>
+    <!---<script type="text/javascript" src="js/index.js"></script>--->
+
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <title>КРАТКИЙ СПРАВОЧНИК ПО LSL</title>
+</head>
+<body>
+<!---start--->
+<div data-role="page" data-theme="b" id="start">
+    <div data-role="header" data-position="fixed">
+        <h1 class="ui-title" role="heading" aria-level="1">КРАТКИЙ СПРАВОЧНИК ПО LSL</h1>
+        <a href="#Radio" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+        <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
+    </div>
+
+    <div data-role="content">
+
+        <a href="#Constants" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Constants</a>
+        <a href="#Events" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Events</a>
+        <a href="#Functions" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Functions</a>
+        <a href="#Flow" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Flow Control</a>
+        <a href="#Operators" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Operators</a>
+        <a href="#States" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >States</a>
+        <a href="#Types" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Types</a>
+
+
+
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <a href="#start_a" role="button"  data-transition="flip" >A. ЛИНДЕН-ФУНКЦИИ</a>
+        <a href="#start_b" role="button"  data-transition="flip" >B. СОБЫТИЯ</a>
+        <a href="#start_c" role="button"  data-transition="flip" >C. КОНСТАНТЫ</a>
+    </div>
+</div>
+<!---stsrt a--->
+<div data-role="page" data-theme="b" id="start_a">
+    <div data-role="header" data-position="fixed">
+        <h1 class="ui-title" role="heading" aria-level="1">A. ЛИНДЕН-ФУНКЦИИ</h1>
+        <a href="#Radio" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+        <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
+    </div>
+    <div data-role="content" >
+        <div data-role="collapsible-set">
+            <ol data-role="listview" data-filter="true" data-filter-placeholder="Поиск..." data-inset="true">
+
+                <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                    <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetScriptState</h3>
+                    <p><span class="kw4">integer</span> <span class="kw5">llGetScriptState</span>(string name);</p>
+                    <p>Установить <span class="kw00">Rest</span> <span class="kw2">TRUE</span> если скипт <span class="kw00">name</span> запущен.</p>
+                    <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetScriptState"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                </div>
+
+
+
+
+            </ol>
+
+        </div>
+
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <a href="#start" role="button"  data-transition="flip" >HOME</a>
+        <a href="#start_b" role="button"  data-transition="flip" >B. СОБЫТИЯ</a>
+        <a href="#start_c" role="button"  data-transition="flip" >C. КОНСТАНТЫ</a>
+    </div>
+</div>
+<!---stsrt b--->
+<div data-role="page" data-theme="b" id="start_b">
+    <div data-role="header" data-position="fixed">
+        <h1 class="ui-title" role="heading" aria-level="1">B. СОБЫТИЯ</h1>
+        <a href="#Radio" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+        <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
+    </div>
+
+    <div data-role="content">
+
+        <a href="#Constants" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Constants</a>
+
+
+
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <a href="#start" role="button"  data-transition="flip" >HOME</a>
+        <a href="#start_a" role="button"  data-transition="flip" >A. ЛИНДЕН-ФУНКЦИИ</a>
+        <a href="#start_c" role="button"  data-transition="flip" >C. КОНСТАНТЫ</a>
+    </div>
+</div>
+<!---stsrt c--->
+<div data-role="page" data-theme="b" id="start_c">
+    <div data-role="header" data-position="fixed">
+        <h1 class="ui-title" role="heading" aria-level="1">C. КОНСТАНТЫ</h1>
+        <a href="#Radio" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+        <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
+    </div>
+
+    <div data-role="content">
+
+        <a href="#Constants" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip" >Constants</a>
+
+
+
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <a href="#start" role="button"  data-transition="flip" >HOME</a>
+        <a href="#start_a" role="button"  data-transition="flip" >A. ЛИНДЕН-ФУНКЦИИ</a>
+        <a href="#start_b" role="button"  data-transition="flip" >B. СОБЫТИЯ</a>
+    </div>
+</div>
+<!---фрейм--->
+<div data-role="page" data-theme="b" id="start_f">
+    <div data-role="header" data-position="fixed">
+        <a class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-left" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Second Life® Wiki</h1>
+        <a  href="#Info" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-info " data-transition="flip" >Info</a>
+    </div>
+
+    <div data-role="content" >
+        <div id="my_if"></div>
+
+
+
+    </div>
+
+</div>
+<!---диалоги--->
+<div  data-role="dialog" id="Constants" data-url="dialog1" tabindex="0" >
+
+    <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+        <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Constants</h1>
+    </div>
+    <div role="main" class="ui-contain"></div>
+    <p>
+        Константы в LSL это заранее заданные глобальные преременные определенного типа которые используются для удобства восприятия каких либо числовых значений.
+    </p>
+    <p>Константы описаны в приложении : <b>«C. КОНСТАНТЫ»</b></p>
+</div>
+<div  data-role="dialog" id="Events" data-url="dialog1" tabindex="0" >
+
+    <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+        <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Events</h1>
+    </div>
+    <div role="main" class="ui-contain"></div>
+    <p>
+        LSL событийный язык и в любой вашей программе должно быть хотябы одно обьявленное и описанное событие. Все команды языка бутут выполнятся в теле события.
+    </p>
+    <p>События описаны в приложении&#160;: <b>«B. СОБЫТИЯ»</b></p>
+</div>
+<div  data-role="dialog" id="Functions" data-url="dialog1" tabindex="0" >
+
+    <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+        <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Functions</h1>
+    </div>
+    <div role="main" class="ui-contain"></div>
+    <p>Набор из более чем трехсот функций опысывается в приложении: <b>«A. БИБЛИОТЕЧНЫЕ ЛИНДЕН-ФУНКЦИИ»</b></p>
+</div>
+<div  data-role="dialog" id="Flow" data-url="dialog1" tabindex="0" >
+
+    <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+        <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Flow Control</h1>
+    </div>
+    <div role="main" class="ui-contain"></div>
+    <p>Команды контроля выполнения программы:</p>
+    <p>&#160;</p>
+    <p><b>if</b>(условие){программа выполняется если истина} <b>else </b>{программа выполняется если ложь}</p>
+    <p><b>if</b>(условие){программа выполняется если истина}</p>
+    <p>&#160;</p>
+    <p><b>while</b>(условие){программа выполняющаяся циклически пока условие не будет истинно - условие проверяется перед итерацией}</p>
+    <p><b>do</b>{программа выполняющаяся циклически пока условие не будет истинно - условие проверяется после итеррации}<b>while</b>(условие)</p>
+    <p><b>for</b>(инициализация переменной; условие; операция над переменной например инкремент){программа выполняющаяся циклически пока условие не будет истинно - условие проверяется после итеррации}</p>
+    <p>&#160;</p>
+    <p><b>jump</b> метка_места_перехода;</p>
+    <p>...</p>
+    <p>...</p>
+    <p>метка_места_перехода@;</p>
+    <p>...</p>
+    <p><b>return</b> значение; вернуть значение функции если функция была обьявлена как функция возвращающая какоето значение.</p>
+    <p><b>return; </b>выход из цикла, из функции , из события , после выхода продолжается выполнение дальнейшей программы.</p>
+
+</div>
+<div  data-role="dialog" id="Operators" data-url="dialog1" tabindex="0" >
+
+    <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+        <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Operators</h1>
+    </div>
+    <div role="main" class="ui-contain"></div>
+    <p>Список операторов:</p>
+    <p>() [] . Parenthesis, Brackets, and Dot do this second (do this first)</p>
+    <p>(type) Typecasting message = "The result is:" + (string) result;</p>
+    <p>! ~ ++ -- NOT, One's Complement, Increment, Decrement counter++;</p>
+    <p>* /&#160;% Multiply, Divide, Modulus rollover = (count + 1)%5;</p>
+    <p>- Subtraction one = 3 - 2;</p>
+    <p>+ Addition or joining Strings two = 1+1; text = "Hello" + "World"; myList = [1, 2, 3] + [4, 5]; newList = oldList + addList;</p>
+    <p>&lt;&lt; &gt;&gt; Left Shift, Right Shift eight = 4 &lt;&lt; 1;</p>
+    <p>&lt; &lt;= &gt; &gt;= Less Than, Less Than Or Equal To, isFalse = (6 &lt;= 4);</p>
+    <p>&amp; Bitwise AND zero = 4 &amp; 2;four = 4 &amp; 4;</p>
+    <p>^ Bitwise XOR zero = 4 ^ 4; six = 4 ^ 2;</p>
+    <p>| Bitwise OR four = 4 | 4; six = 4 | 2;</p>
+    <p>&amp;&amp; Comparison AND isFalse = (FALSE &amp;&amp; TRUE);</p>
+    <p>|| Comparison OR isTrue = (FALSE || TRUE);</p>
+    <p>= += -= *= /=&#160;%= Assignment four = 4;</p>
+</div>
+<div  data-role="dialog" id="States" data-url="dialog1" tabindex="0" >
+
+    <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+        <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">States</h1>
+    </div>
+    <div role="main" class="ui-contain"></div>
+    <p>В любой программе написанной на LSL обязательно должно быть хотябы одно состояние. Начальное состояние в котором обявляются и описываются все события называется <b>default </b>состоянием.</p>
+    <p>Форма записи состояний:</p>
+    <p><b>default</b>{событие1{}событие2{}событиеN{}} -- так описывается начальное состояние</p>
+    <p><b>state</b> состояние1{событие1{}событие2{}событиеN{}} -- так описывается любое состояние определенное пользователем</p>
+    <p>Вызов любого из обьявленных и описанных состояних может быть произведен из любого места в программе описанной в событиях.</p>
+    <p>&#160;</p>
+    <p>Форма вызова события:</p>
+    <p><b>default</b></p>
+    <p>{</p>
+    <p>событие1 { ... }</p>
+    <p>событие2 { ...&#160;; <b>state</b> состояние2&#160;; ...&#160;; }</p>
+    <p>событиеN { ... }</p>
+    <p>}</p>
+    <p>&#160;</p>
+    <p><b>state </b>состояние2</p>
+    <p>{</p>
+    <p>событие1 { ... }</p>
+    <p>событие2 { ...&#160;; <b>state default</b>&#160;; ...&#160;; }</p>
+    <p>событиеN { ... }</p>
+    <p>}</p>
+    <p>Обьявление состояния default не требует ключевого слова state.</p>
+</div>
+<div  data-role="dialog" id="Types" data-url="dialog1" tabindex="0" >
+
+    <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+        <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Types</h1>
+    </div>
+    <div role="main" class="ui-contain"></div>
+    <p>Типы:</p>
+    <p><b>integer </b>- целочисленный тип данных</p>
+    <p><b>float </b>- тип данных с плавающей точкой</p>
+    <p><b>string </b>- строковый тип данных а также и символьный</p>
+    <p><b>key </b>- тип данных использующийся для хранения уникальных ключей ID</p>
+    <p><b>vector </b>- тип данных использующийся для хранения коордитат или схожих данных в виде &lt; x, y, z &gt;</p>
+    <p><b>rotation </b>- тип данных использующийся для хранения угловых параметров или схожих данных в виде &lt; x, y, z, s &gt;</p>
+    <p><b>list </b>- смешаный тип данных обьеденяющий в себе понятия структуры и масива. Можно хранить списки любых типов данных в любом порядке.</p>
+    <p><b>Variables </b></p>
+    <p>Примеры записи значений переменных разных типов:</p>
+    <p><b>integer </b>- 1234567</p>
+    <p><b>float </b>- 123456.789</p>
+    <p><b>string </b>- "stroka"</p>
+    <p><b>key </b>- "a822ff2b-ff02-461d-b45d-dcd10a2de0c2"</p>
+    <p><b>vector </b>- &lt; 0.35, 1.456, 234.23 &gt;</p>
+    <p><b>rotation</b> - &lt; 0.35, 1.456, 234.23, 12.3 &gt;</p>
+    <p><b>list </b>- [1234567, "stroka", "a822ff2b-ff02-461d-b45d-dcd10a2de0c2", &lt; 0.35, 1.456, 234.23, 12.3 &gt;, &lt; 0.35, 1.456, 234.23 &gt;]</p>
+    <p><b>Errors </b></p>
+    <p>Сообщения о ошибках происходящих в работе програмы отправляются по специальному каналу DEBUG_CHANNEL и они все будут отображатся в тексте чата.</p>
+
+</div>
+<!--Info--->
+<div  data-role="dialog" id="Info" data-url="dialog1" tabindex="0" >
+
+    <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+        <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Info</h1>
+    </div>
+    <div role="main" class="ui-contain"></div>
+    <p>
+        Константы в LSL это заранее заданные глобальные преременные определенного типа которые используются для удобства восприятия каких либо числовых значений.
+    </p>
+    <p>Константы описаны в приложении : <b>«C. КОНСТАНТЫ»</b></p>
+</div>
+<!--Radio-->
+<div  data-role="dialog" id="Radio" data-url="dialog1" tabindex="0" >
+
+    <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
+        <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Онлайн Радио</h1>
+    </div>
+    <div role="main" class="ui-contain"></div>
+    <a id="pl"  role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+    <form id="tape-form" action="." method="get" onsubmit="return false">
+        <label for="url-1">Введите URL радио:</label>
+        <input class="label" data-clear-btn="true" name="url-1" id="url-1" type="url" value=""/>
+        <input type="button" value="Воспроизвести" id="add"/>
+    </form>
+    <p>Ctrl+C - скопировать<br>Ctrl+V - вставить<br>Ссылка должна начинаться с http://....<br>Пример: http://206.190.136.212:4967/Live <br>или<br>http://listen1.myradio24.com:9000/6109</p>
+    <script type="text/javascript">
+        soundManager.setup({
+            onready: function() {
+                var linkURL = document.getElementById('url-1').value;
+                $('#add').click(function () {
+                    mySound.stop();
+                    var inputURL = document.getElementById('url-1').value,
+                            s = soundManager.getSoundById('sound0');
+                        s.load({
+                            url: inputURL
+                        }).play();
+
+
+                    return false;
+                });
+                var ps = 'play';// определяем, что кликнули
+                var def = "http://206.190.136.212:4967/Live";
+                var mySound = soundManager.createSound({
+                    url: def
+                });
+                $('#pl').click(function () {
+                    if (ps == 'play')//если кликнули по play
+                    {
+                        mySound.play();
+                        ps = 'pause';
+                        $('#pl').text('Стоп');
+                        $('#pl').removeClass('ui-icon-audio');
+                        $('#pl').addClass('ui-icon-delete');
+                    }
+                    else if (ps == 'pause') {//если кликнули по pause
+                        mySound.stop();
+                        ps = 'play';
+                        $('#pl').text('Плей');
+                        $('#pl').removeClass('ui-icon-delete');
+                        $('#pl').addClass('ui-icon-audio');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!---<a id="pl"  role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+    <a id="timer"></a>
+    <form id="ll">
+        <label for="url-1">Введите URL радио:</label>
+        <input data-clear-btn="true" name="url-1" id="url-1" value="" type="url"/>
+        <input type="button" value="Добавить" id="add"/>
+    </form>
+
+    <script>
+        buzz.defaults.preload = 'none';
+        var def = "http://206.190.136.212:4967/Live";
+        $(function(){
+            $('#add').click(function() {
+                def = linkURL;
+                mySound.stop();
+                $('#pl').removeClass('ui-icon-delete');
+                $('#pl').addClass('ui-icon-audio');
+                mySound.load();
+            });
+            var ps = 'play';// определяем, что кликнули
+            var linkURL = document.getElementById('url-1').value;
+            var mySound = new buzz.sound(def);
+            $('#pl').click(function(){
+                if(ps=='play')//если кликнули по play
+                {
+                    mySound.play();
+                    ps = 'pause';
+                    $('#pl').text('Стоп');
+                    $('#pl').removeClass('ui-icon-audio');
+                    $('#pl').addClass('ui-icon-delete');
+                    alert(def);
+                }
+                else if(ps == 'pause'){//если кликнули по pause
+                    mySound.stop();
+                    ps = 'play';
+                    $('#pl').text('Плей');
+                    $('#pl').removeClass('ui-icon-delete');
+                    $('#pl').addClass('ui-icon-audio');
+                }
+            });
+
+        });
+    </script>---->
+</div>
+<!---скрипт--->
+<script>
+    $('.hr').click(function(e) {
+        e.preventDefault(); // Предотвратить href от перенаправления напрямую
+        var linkURL = $(this).attr("href");
+        //warnBeforeRedirect(linkURL);
+        //$("#my_if").html("<iframe src='' width='99%' height='410' id='my_if1'></iframe>" );
+        //$("#my_if1").content().append("linkURL");
+        $("#my_if").html("<iframe src="+linkURL+" width='100%' height='700' id='my_if1'></iframe>" );
+        window.location.href = "#start_f";
+    });
+    //        function warnBeforeRedirect(linkURL) {
+    //            swal({
+    //                title: "Скопируйте ссылку:",
+    //                text: linkURL + " Либо откройте её в окне:",
+    //                type: "success", //"warning",
+    //                showCancelButton: true
+    //            }, function() {
+    //                // Перенаправить пользователя
+    //                window.location.href = "#start_f";
+    //            });
+
+</script>
+<!--аним min-->
+<script>
+    $( "h3.min" ).mousemove(function() {
+        //$( this ).fadeOut( 100 );
+        //$( this ).fadeIn( 100 );
+        var nameAnim = 'animated pulse ';
+        var meth = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        $(this).addClass(nameAnim).one(meth,function(){
+            $(this).removeClass(nameAnim);
+        });
+    });
+</script>
+<!--аним wiki-->
+<script>
+    //$('.m51').addClass('animated shake');
+    $(function(){
+        var nameAnim = 'animated flipInX';
+        var meth = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        $('p.m55').on('mouseover',function(){
+            $('.m55').addClass(nameAnim).one(meth,function(){
+                $(this).removeClass(nameAnim);
+            });
+        });
+    });
+</script>
+<!---номер--->
+<script>
+
+    $('.nambs').each(function(i) {
+        var number = i + 1;
+        $(this).text(number+".");
+    });
+</script>
+<!-- клик ф.-->
+<script>
+    $(function(){
+        var mySound = new buzz.sound("img/tik.wav",{volume:10});
+        $('.min').click(function(){
+            mySound.play();
+
+        });
+    });
+</script>
+</body>
+<!---меню--->
+<script type="text/javascript">
+    $("body").on("contextmenu", false);
+</script>
+</html>

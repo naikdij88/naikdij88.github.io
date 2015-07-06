@@ -1,49 +1,145 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+/**
+ * Cassette Demo page JS - you don't need this part.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+(function() {
 
-        console.log('Received Event: ' + id);
+    function init() {
+
+        // Demo-specific things: background-switching, etc.
+
+        var bgIndex = 1,
+            backgrounds;
+
+        // note: remote servers will need to serve a CORS response header for cross-domain canvas access.
+        backgrounds = [
+            'image/demo_backgrounds/sfatnight_1600.jpg',
+            'http://freshly-ground.com/data/image/sm2/lake_1600.jpg',
+            'http://freshly-ground.com/data/image/sm2/wall_of_hard_drives.jpg',
+            'http://freshly-ground.com/data/image/sm2/attack_of_the_jellyfish.jpg',
+            'http://freshly-ground.com/data/image/sm2/cassette_tape_lamp.jpg'
+        ];
+
+        document.getElementById('nextBackground').onclick = function(e) {
+
+            var i, j, refreshed,
+                loader = document.getElementById('tape-loader');
+
+            function refreshDone() {
+                // re-hide the loader
+                refreshed++;
+                if (refreshed == tapeUIs.length) {
+                    if (loader) {
+                        loader.className = 'hidden';
+                    }
+                }
+            }
+
+            // hack: make the loader visible again
+            if (loader) {
+                loader.className = 'visible';
+            }
+
+            document.getElementsByTagName('html')[0].style.backgroundImage = 'url(' + backgrounds[bgIndex] + ')';
+
+            refreshed = 0;
+
+            for (i=0, j=tapeUIs.length; i<j; i++) {
+                tapeUIs[i].refreshBlurImage(refreshDone);
+            }
+
+            if (++bgIndex >= backgrounds.length) {
+                bgIndex = 0;
+            }
+
+            e.preventDefault();
+            return false;
+
+        };
+
+        // form helpers
+
+        var form = document.getElementById('tape-form'),
+            defaultValue,
+            input;
+
+        if (form) {
+
+            input = form.getElementsByTagName('input')[0];
+
+            function submitHandler(e) {
+
+                var inputURL = input.value,
+                    s = soundManager.getSoundById('url-1'),
+                    lastValue,
+                    caughtSubmit;
+
+                // URL should at least have two slashes in it, to be considered valid.
+                if (s && inputURL.match(/\/\//) && s.url !== inputURL) {
+
+                    s.load({
+                        url: inputURL
+                    }).play();
+
+                }
+
+                if (e) {
+                    e.preventDefault();
+                }
+
+                // is the form focused? blur if so.
+                if (document.activeElement && document.activeElement == input) {
+                    try {
+                        caughtSubmit = true;
+                        input.blur();
+                    } catch(ee) {
+                        // oh well
+                    }
+                }
+
+                return false;
+
+            }
+
+            form.onsubmit = submitHandler;
+
+            // reset form on load
+            defaultValue = input.getAttribute('data-default-value');
+
+            input.value = defaultValue;
+
+            input.onfocus = function() {
+
+                caughtSubmit = false;
+
+                lastValue = this.value;
+
+                this.value = '';
+
+            };
+
+            input.onblur = function() {
+
+                if (!this.value) {
+
+                    this.value = (lastValue || defaultValue);
+
+                }
+
+                if (!caughtSubmit) {
+                    // user tabbed out, etc.? we may load a new URL now.
+                    submitHandler();
+                }
+
+            }
+
+        }
+
     }
-};
+
+    soundManager.setup({
+        onready: init,
+        ontimeout: init
+    });
+
+}());
