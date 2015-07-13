@@ -818,14 +818,191 @@
                         <p>Получить <span class="kw00">время</span> в секундах отсчитывая с полночи в <span class="kw01">SECOND LIFE</span>.</p>
                         <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetTimeOfDay"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
                     </div>
-
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetTimestamp</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llGetTimestamp</span>(void);</p>
+                        <p>Получить время в формате&#160;:<span class="kw00"> YYYY-MM-DDThh:mm:ss.ff..fZ</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetTimestamp"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div  data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetTorque</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetTorque</span>(void);</p>
+                        <p>Получить момент <span class="kw00">вращения</span> если скрипт <span class="kw00">физический</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetTorque" class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetVel</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGetVel</span>();</p>
+                        <p>Возвращает <span class="kw00">скорость</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetVel"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGetWallclock</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGetWallclock</span>(void);</p>
+                        <p>Возвращает <span class="kw00">время</span> в секундах с тех пор как в симуляторе наступила полночь. В настоящее время это <span class="kw00">PST</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGetWallclock"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGiveInventory</h3>
+                        <p><span class="kw5">llGiveInventory</span>(<span class="kw4">key</span> destination, <span class="kw4">string</span> inventory);</p>
+                        <p>Выдать деталь из инвентаря <span class="kw00">inventory</span> Аватару или обьекту <span class="kw00">ключ</span> которого указан в <span class="kw00">destination</span>. Если получатель является Аватаром, тогда аватар после этого следует нормальной процедуре принятия или отказа от предложения. Если получатель является какимлибо обьектом то права доступа будут применятся как будто это были вы и перемещали в инвентаре обьекты вручную, если функция <span class="kw5">llAllowInventoryDrop</span> была вызвана с <span class="kw2">TRUE</span> параметрами любой другой обьект может быть пропущен в инвентарь.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGiveInventory"  class="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGiveInventoryList</h3>
+                        <p><span class="kw5">llGiveInventoryList</span>(<span class="kw4">key</span> destination, <span class="kw4">string</span> category, <span class="kw4">list</span> inventory);</p>
+                        <p>Выдать указанный перечень деталей из <span class="kw00">инвентаря</span> аватару или обьекту <span class="kw00">ключ</span> которого <span class="kw00">destination</span> в томже симуляторе где находится обьект у которого это берут. Если получатель является аватаром, то он после этого следует нормальной процедуре принятия или отказа от предложения. Предложенный инвентарь после этого помещяется в папку названную <span class="kw00">category</span> в инвентаре получателя. Если получатель является любым обьектом то к нему применяются права также как если бы это были вы и перемещали в инвентаре обьекты вручную, если <span class="kw5">llAllowInventoryDrop</span> была вызвана с <span class="kw2">TRUE</span> параметрами любой другой обьект может быть пропущен в инвентарь.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGiveInventoryList"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGiveMoney</h3>
+                        <p><span class="kw5">llGiveMoney</span>(<span class="kw4">key</span> destination, <span class="kw4">integer</span> amount);</p>
+                        <p>Передает сумму <span class="kw00">amount</span> с помощью скрипта владельца в пункту назначения <span class="kw00">destination</span>. Этот вызов не будет успешным если не был установленно разрешение <span class="kw2">PERMISSION_DEBIT</span>. </p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGiveMoney"  class="hr"><img src="img/Emblem-important-red.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGround</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llGround</span>(<span class="kw4">vector</span> offset);</p>
+                        <p>Возвращает <span class="kw00">высоту</span> земли по кординатам обьекта со смещение координат <span class="kw00">offset</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGround"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGroundContour</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGroundContour</span>(<span class="kw4">vector</span> offset);</p>
+                        <p>Возвращает <span class="kw00">контур</span> земли по кординатам обьекта со смещение координат <span class="kw00">offset</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGroundContour"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGroundNormal</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGroundNormal</span>(<span class="kw4">vector</span> offset);</p>
+                        <p>Возвращает <span class="kw00">вектор</span> нормалей земли по кординатам обьекта со смещение координат <span class="kw00">offset</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGroundNormal"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGroundRepel</h3>
+                        <p><span class="kw5">llGroundRepel</span>(<span class="kw4">float</span> height, <span class="kw4">integer</span> water, <span class="kw4">float</span> tau);</p>
+                        <p>Критическая аммортизация(<span class="kw00">тормоз</span>) по высоте <span class="kw00">height</span>, если высота в пределах <span class="kw00">height</span> * <span class="kw00">0</span>.<span class="kw00">5</span> уровня. <span class="kw00">Height</span> выше уровня земли вода <span class="kw00">water</span> - <span class="kw2">FALSE</span>, или выше уровня земли и вода если <span class="kw00">water</span> - <span class="kw2">TRUE</span></p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGroundRepel"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llGroundSlope</h3>
+                        <p><span class="kw4">vector</span> <span class="kw5">llGroundSlope</span>(<span class="kw4">vector</span> offset);</p>
+                        <p>Возвращает <span class="kw00">уклон</span> земли под позицией обьекта со смещением <span class="kw00">offset</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlGroundSlope"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llInsertString</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llInsertString</span>(<span class="kw4">string</span> dst, <span class="kw4">integer</span> position, <span class="kw4">string</span> src);</p>
+                        <p>Вставить строку <span class="kw00">src</span> в строку <span class="kw00">dst</span> на позицию <span class="kw00">position</span> и вернуть результат.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlInsertString"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llInstantMessage</h3>
+                        <p><span class="kw5">llInstantMessage</span>(<span class="kw4">key</span> user, <span class="kw4">string</span> message);</p>
+                        <p>Послать сообщение <span class="kw00">message</span> юзеру(по <span class="kw00">ключу</span>) <span class="kw00">user</span> согласно мнгновенному сообщению.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlInstantMessage"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llKey2Name</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llKey2Name</span>(<span class="kw4">key</span> id);</p>
+                        <p>Если обьект с этим <span class="kw00">ID</span> находится в этомже симуляторе(<span class="kw00">територии</span>), возвращается <span class="kw00">имя</span> обьекта.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlKey2Name"  class="hr"><img src="img/bug.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llList2CSV</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llList2CSV</span>(<span class="kw4">list</span> src);</p>
+                        <p>Создает строку отделенную запятыми со значениями из списка <span class="kw00">src</span>. </p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlList2CSV"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llList2Float</h3>
+                        <p><span class="kw4">float</span> <span class="kw5">llList2Float</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> index);</p>
+                        <p>Возвращает значение с плав. точкой <span class="kw00">float</span> по индексу <span class="kw00">index</span> из списка <span class="kw00">src</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlList2Float"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llList2Integer</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llList2Integer</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> index);</p>
+                        <p>Возвращает целое <span class="kw00">integer</span> по индексу <span class="kw00">index</span> из списка <span class="kw00">src</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlList2Integer"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llList2Key</h3>
+                        <p><span class="kw4">key</span> <span class="kw5">llList2Key</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> index);</p>
+                        <p>Возвращает ключ <span class="kw00">key</span> по индексу <span class="kw00">index</span> из списка <span class="kw00">src</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlList2Key"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llList2List</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llList2List</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> start, <span class="kw4">integer</span> end);</p>
+                        <p>Возвращает новый список как часть списка от стартовой позиции <span class="kw00">start</span> до конечной <span class="kw00">end</span> из списка <span class="kw00">src</span>. Если промежуток между конечной и начальной позицией равен <span class="kw00">0</span>,-<span class="kw00">1</span> то вернется весь список, если <span class="kw00">0</span>,<span class="kw00">0</span> то вернется первый элемент , если напимер начальная позиция больше конечной то вернется все (<span class="kw00">включая и позиции старта и конца</span>)кроме того что было межу этими позициями.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlList2List"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llList2ListStrided</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llList2ListStrided</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> start, <span class="kw4">integer</span> end, <span class="kw4">integer</span> stride);</p>
+                        <p>Копирует равные доли из списка <span class="kw00">src</span> начиная от позиции <span class="kw00">start</span> до позиции <span class="kw00">end</span> c шагом <span class="kw00">stride</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlList2ListStrided"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llList2Rot</h3>
+                        <p><span class="kw4">rotation</span> <span class="kw5">llList2Rot</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> index);</p>
+                        <p>Возвращает переменную типа <span class="kw00">ротация</span> по индексу <span class="kw00">index</span> из списка <span class="kw00">src</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlList2Rot"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llList2String</h3>
+                        <p><span class="kw4">string</span> <span class="kw5">llList2String</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> index);</p>
+                        <p>Возвращает строку по индексу <span class="kw00">index</span> из списка <span class="kw00">src</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlList2String"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llList2Vector</h3>
+                        <p><span class="kw5">llList2Vector</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> index);</p>
+                        <p>Возвращает вектор по индексу <span class="kw00">index</span> из списка <span class="kw00">src</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlList2Vector"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llListFindList</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llListFindList</span>(<span class="kw4">list</span> src, <span class="kw4">list</span> test);</p>
+                        <p>Возвращает позицию первого встретившегося значения <span class="kw00">test</span> из списка <span class="kw00">src</span>. - <span class="kw00">1</span>(<span class="kw00">минус один</span>) - возвращается если в списке <span class="kw00">src</span> нет ни одного элемента из списка <span class="kw00">test</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlListFindList"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llListInsertList</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llListInsertList</span>(<span class="kw4">list</span> dest, <span class="kw4">list</span> src, <span class="kw4">integer</span> pos);</p>
+                        <p>Возвращает созданный лист <span class="kw00">list</span> при вставке <span class="kw00">src</span> в <span class="kw00">dest</span> на позицию <span class="kw00">pos</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlListInsertList"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llListRandomize</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llListRandomize</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> stride);</p>
+                        <p>Возвращает случайное значение из списка <span class="kw00">src</span> в виде блока размером <span class="kw00">stride</span>. Если длина указанного блока равна <span class="kw00">0</span> то функция не производит рандомизацию.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlListRandomize"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llListReplaceList</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llListReplaceList</span>(<span class="kw4">list</span> dest, <span class="kw4">list</span> src, <span class="kw4">integer</span> start, <span class="kw4">integer</span> end);</p>
+                        <p>Возвращает созданный список после замены сегмента из <span class="kw00">dest</span> списка на сегмент из <span class="kw00">src</span> списка, начальная позиция которого - <span class="kw00">start</span> и конечная - <span class="kw00">end</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlListReplaceList"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llListSort</h3>
+                        <p><span class="kw4">list</span> <span class="kw5">llListSort</span>(<span class="kw4">list</span> src, <span class="kw4">integer</span> stride, <span class="kw4">integer</span> ascending);</p>
+                        <p>Возвращает отсортированный список <span class="kw00">src</span> в порядке возростания (<span class="kw00">если ascending</span> <span class="kw2">TRUE</span>)или убывания (<span class="kw00">если ascending</span> <span class="kw2">FALSE</span>) .Сортировка производится блоками с размером в <span class="kw00">ascending</span> элементов. Запись этой сортировки работает только с одним и тем-же типом заголовка каждого сортируемого блока.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlListSort"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llListen</h3>
+                        <p><span class="kw4">integer</span> <span class="kw5">llListen</span>(<span class="kw4">integer</span> channel, <span class="kw4">string</span> name, <span class="kw4">key</span> id, <span class="kw4">string</span> msg);</p>
+                        <p>Активирует вызов прослушивающего <span class="kw00">Listen</span> события при появлении сообщения <span class="kw00">msg</span> на канале <span class="kw00">chanel</span> от обьекта (<span class="kw00">аватара</span>)<span class="kw00">name</span> и обьекта(<span class="kw00">аватара</span>)ключ которого <span class="kw00">id</span>, можно использовать для деактивации или активации прослушивающего события <span class="kw00">Listen</span>. <span class="kw00">Name</span>, <span class="kw00">id</span> и / или <span class="kw00">msg</span> параметры могут быть пустыми если вы не хотите использовать какие либо аргументы для фильтрации прослушки. Канал <span class="kw00">0</span> это канал ощественного <span class="kw00">чата</span>, текст чата будет виден всем аватарам. Каналы от <span class="kw00">1</span> до <span class="kw00">2</span>,<span class="kw00">147</span>,<span class="kw00">483</span>,<span class="kw00">648</span> скрытые каналы которые не посылаются аватарам.</p>
+                        <p>Функция возвращает маркер который нужен для использования в таких функциях как <span class="kw5">llListenControl</span> и <span class="kw5">llListenRemove</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlListen"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
 
                 </ol>
-
             </div>
-
         </div>
-
         <div data-role="footer" data-position="fixed">
             <a href="#start" role="button"  data-transition="flip" >HOME</a>
             <a href="#start_b" role="button"  data-transition="flip" >B. СОБЫТИЯ</a>
@@ -915,14 +1092,16 @@
             <h1 class="ui-title" role="heading" aria-level="1">Онлайн Радио</h1>
         </div>
         <div role="main" class="ui-contain"></div>
-        <a id="pl"  role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-audio " data-transition="flip" >Плей</a>
+        <div class="bgr"><br>
+        <a id="pl"  role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-myicon" data-transition="flip" >Плей</a>
         <form id="tape-form" action="." method="get" onsubmit="return false">
             <label for="url-1">Введите URL радио:</label>
             <input class="label" data-clear-btn="true" name="url-1" id="url-1" type="url" value=""/>
             <input type="button" value="Воспроизвести" id="add"/>
         </form>
-        <p>Ctrl+C - скопировать<br>Ctrl+V - вставить<br>Ссылка должна начинаться с http://....<br>Пример: http://206.190.136.212:4967/Live <br>или<br>http://listen1.myradio24.com:9000/6109</p>
-        <script type="text/javascript">
+        <p class="nt">Ctrl+C - скопировать<br>Ctrl+V - вставить<br>Ссылка должна начинаться с http://....<br>Пример: http://206.190.136.212:4967/Live <br>или<br>http://listen1.myradio24.com:9000/6109</p>
+        </div>
+            <script type="text/javascript">
             soundManager.setup({
                 onready: function() {
                     var linkURL = document.getElementById('url-1').value;
@@ -948,15 +1127,16 @@
                             mySound.play();
                             ps = 'pause';
                             $('#pl').text('Стоп');
-                            $('#pl').removeClass('ui-icon-audio');
-                            $('#pl').addClass('ui-icon-delete');
+                            $('#pl').removeClass('ui-icon-myicon');
+                            $('#pl').addClass('ui-icon-myicon2');
                         }
                         else if (ps == 'pause') {//если кликнули по pause
                             mySound.stop();
                             ps = 'play';
                             $('#pl').text('Плей');
-                            $('#pl').removeClass('ui-icon-delete');
-                            $('#pl').addClass('ui-icon-audio');
+                            $('#pl').removeClass('ui-icon-myicon2');
+                            $('#pl').addClass('ui-icon-myicon');
+                            soundManager.unload('sound0');
                         }
                     });
                 }
