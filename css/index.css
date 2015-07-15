@@ -5,12 +5,12 @@
     opacity:1;
 }
 .leftimg {
-    float:left; /* Выравнивание по левому краю */
-    margin: 0px 5px 5px 0; /* Отступы вокруг картинки */
+    float:left; /* Р’С‹СЂР°РІРЅРёРІР°РЅРёРµ РїРѕ Р»РµРІРѕРјСѓ РєСЂР°СЋ */
+    margin: 0px 5px 5px 0; /* РћС‚СЃС‚СѓРїС‹ РІРѕРєСЂСѓРі РєР°СЂС‚РёРЅРєРё */
 }
 .rightimg {
-    float: right; /* Выравнивание по правому краю */
-    margin: 5px 0 5px 5px; /* Отступы вокруг картинки */
+    float: right; /* Р’С‹СЂР°РІРЅРёРІР°РЅРёРµ РїРѕ РїСЂР°РІРѕРјСѓ РєСЂР°СЋ */
+    margin: 5px 0 5px 5px; /* РћС‚СЃС‚СѓРїС‹ РІРѕРєСЂСѓРі РєР°СЂС‚РёРЅРєРё */
 }
 
 .kw01 {
@@ -72,7 +72,7 @@
 .lsl2.source-lsl2 .nu0 {
     color: #000000;
 }
-/* текст*/
+/* С‚РµРєСЃС‚*/
 .x{
     background-color: rgba(255, 255, 0, 0);
     color: rgba(139, 0, 0, 0);
@@ -88,47 +88,92 @@
     /* Make your icon fit */
     background-size: 20px 20px;
 }
-
-.pla1y {
-    background: url("../img/play.png") no-repeat scroll 0 0 transparent;
-    background-size: 100% 100%;
-    cursor:pointer;
-    padding: 5px 0 0 5px;
-    overflow: visible;
-    width: 100%;
-    height: 100%;
-    right: -180px;
-    top: 18px;
-    z-index: 999;
+.ui-icon-myicon3:after{
+  background-image: url("../img/minus.png");
+    /* Make your icon fit */
+    background-size: 20px 20px;  
 }
-.bgr {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff0000+0,ffee00+16,04ff00+33,00ffff+50,0800ff+66,f600ff+83,ff0004+100 */
-    background: #ff0000; /* Old browsers */
-    background: -moz-linear-gradient(left, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ff0000), color-stop(16%, #ffee00), color-stop(33%, #04ff00), color-stop(50%, #00ffff), color-stop(66%, #0800ff), color-stop(83%, #f600ff), color-stop(100%, #ff0004)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* IE10+ */
-    background: linear-gradient(to right, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#ff0004', GradientType=1); /* IE6-9 */
-
+.ui-icon-myicon4:after{
+  background-image: url("../img/plas.png");
+    /* Make your icon fit */
+    background-size: 20px 20px;  
+}
+#min{
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0);
+    height: 30px;
+    width: 20px;
+    border-radius: 100px;
+    background-image: url("../img/minus.png");
+    background-size: contain;
+    top: 100%;
+    left: 31%;
+}
+#plm{
+    top: 100%;
+    left: 31%;
+    border-color: #76d142;
+    background-color: rgba(255, 255, 255, 0);
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    -o-transform: scale(2);
+    -moz-transform: scale(2);
+}
+#plp{
+    top: 100%;
+    left: 45%;
+    border-color: #76d142;
+    background-color: rgba(255, 255, 255, 0);
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    -o-transform: scale(2);
+    -moz-transform: scale(2);
 }
 #pl{
     top: 100%;
-    left: 45%;
+    left: 38%;
+    border-color: #76d142;
+    background-color: rgba(255, 255, 255, 0);
     transform: scale(3);
     -webkit-transform: scale(3);
     -o-transform: scale(3);
     -moz-transform: scale(3);
-    background: #ff0000; /* Old browsers */
-    background: -moz-linear-gradient(left, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ff0000), color-stop(16%, #ffee00), color-stop(33%, #04ff00), color-stop(50%, #00ffff), color-stop(66%, #0800ff), color-stop(83%, #f600ff), color-stop(100%, #ff0004)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* IE10+ */
-    background: linear-gradient(to right, #ff0000 0%, #ffee00 16%, #04ff00 33%, #00ffff 50%, #0800ff 66%, #f600ff 83%, #ff0004 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#ff0004', GradientType=1); /* IE6-9 */
+    
 }
 .nt{
     padding: 20px;
+}
+.bgr{
+	
+  background: #EEE;
+}
+.bgt {
+  height: 100%;
+  background: gold;
+  border-radius: 0;
+  animation: background 10s infinite alternate;
+}
+@keyframes background {
+  50% {
+    background: skyblue;
+    box-shadow: 0 -200px 100px -100px yellowgreen inset;
+  }
+}
+.infm{
+    height: 50%;
+    width: 50px;
+    top: 20px;
+    text-align: center;
+    font-family: Gabriola; /* Р“Р°СЂРЅРёС‚СѓСЂР° С€СЂРёС„С‚Р° */
+    src: url(../css/Gabriola.ttf); /* РџСѓС‚СЊ Рє С„Р°Р№Р»Сѓ СЃРѕ С€СЂРёС„С‚РѕРј */ 
+    font-size: 90px;
+    color: #76d142;
+    text-decoration-color: aqua;
+    transform: scale(3);
+    -webkit-transform: scale(3);
+    -o-transform: scale(3);
+    -moz-transform: scale(3);
+    filter: alpha(Opacity=50);
+    opacity: 0.7; 
+    
 }

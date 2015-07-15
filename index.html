@@ -1090,17 +1090,21 @@
         <div data-role="heder" data-theme="b" role="banner" class="ui-header ui-bar-b">
             <a class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" href="#" data-rel="back">Close</a>
             <h1 class="ui-title" role="heading" aria-level="1">Онлайн Радио</h1>
+            <p href="" class="ui-btn-left infm" id="infm"></p>
         </div>
         <div role="main" class="ui-contain"></div>
-        <div class="bgr"><br>
-        <a id="pl"  role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-myicon" data-transition="flip" >Плей</a>
+        
+        <div class="bgr"><div class="bgt"><br>
+        <a id="plm" role="button" class="plm ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-myicon3" >Минус</a>  
+    <a id="pl" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-myicon" >Плей</a>
+    <a id="plp" role="button" class="plp ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-myicon4" >Плюс</a> <br><br>
         <form id="tape-form" action="." method="get" onsubmit="return false">
-            <label for="url-1">Введите URL радио:</label>
-            <input class="label" data-clear-btn="true" name="url-1" id="url-1" type="url" value=""/>
+            
+            <input class="label" data-clear-btn="true" name="url-1" id="url-1" type="url" value="" placeholder="Введите URL радио:"/>
             <input type="button" value="Воспроизвести" id="add"/>
         </form>
         <p class="nt">Ctrl+C - скопировать<br>Ctrl+V - вставить<br>Ссылка должна начинаться с http://....<br>Пример: http://206.190.136.212:4967/Live <br>или<br>http://listen1.myradio24.com:9000/6109</p>
-        </div>
+        </div></div>
             <script type="text/javascript">
             soundManager.setup({
                 onready: function() {
@@ -1121,6 +1125,21 @@
                     var mySound = soundManager.createSound({
                         url: def
                     });
+                    mySound.setVolume(70);
+                var vol = soundManager.getSoundById('sound0');
+                function timm(){document.getElementById('infm').innerHTML = "";};
+                $('#plm').click(function () {
+                    var volume = vol.volume - 5 < 0 ? 0 : vol.volume - 5;
+                    mySound.setVolume(volume);
+                    document.getElementById('infm').innerHTML ="-"+volume;
+                    setTimeout(timm, 2000);
+                });
+                $('#plp').click(function () {
+                    var volume = vol.volume + 5 > 100 ? 100 : vol.volume + 5;
+                    mySound.setVolume(volume);
+                    document.getElementById('infm').innerHTML ="+"+volume;
+                    setTimeout(timm, 2000);
+                });
                     $('#pl').click(function () {
                         if (ps == 'play')//если кликнули по play
                         {
