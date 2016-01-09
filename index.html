@@ -999,6 +999,84 @@
                         <p>Функция возвращает маркер который нужен для использования в таких функциях как <span class="kw5">llListenControl</span> и <span class="kw5">llListenRemove</span>.</p>
                         <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlListen"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
                     </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llListenControl</h3>
+						<p><span class="kw5">llListenControl</span>(<span class="kw4">integer</span> number, <span class="kw4">integer</span> active);</p>
+						<p>Активирует или дезактивирует <span class="kw00">Listen</span> событие. Использует маркер полученный функцией <span class="kw5">llListen</span> в параметре <span class="kw00">number</span> для того чтобы определить какое событие вы контролируете. Используйте <span class="kw00">boolean</span> значения для установки параметра <span class="kw00">active</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlListenControl"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llListenRemove</h3>
+						<p><span class="kw5">llListenRemove</span>(<span class="kw4">integer</span> number);</p>
+						<p>Удаляет <span class="kw00">Listen</span> событие. Использует маркер полученный функцией <span class="kw5">llListen</span> в параметре <span class="kw00">number</span> для того чтобы определить какое событие нужно удалить.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlListenRemove"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llLoadURL</h3>
+						<p><span class="kw5">llLoadURL</span>(<span class="kw4">key</span> avatar_id, <span class="kw4">string</span> message, <span class="kw4">string</span> url);</p>
+						<p>Показывает диалоговое окно юзеру<span class="kw00"> avatar_id</span> С сообщением <span class="kw00">message</span> и предлагает перейти на вэб страницу по адресу <span class="kw00">url</span>. Если юзер нажимает кнопку "<span class="kw00">Перейти на страницу</span>" - запускается установленный по умолчанию браузер и направляетс на <span class="kw00">url</span>.</p>
+						<p><span class="kw00">url</span> должен начинатся с "<span class="kw00">http:</span>" или "<span class="kw00">https:</span>", другой протокол в настоящее время не поддерживается. Диалоговый бокс показывает имя Владельца обьекта так что при злоупотреблении о спалме можно легко сообщить. Эта функция имеет 10 сек задержку.</p>
+                    	<p class="m55"><a href="http://wiki.secondlife.com/wiki/LlLoadURL"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llLog</h3>
+                    	<p><span class="kw4">float</span> <span class="kw5">llLog</span>(<span class="kw4">float</span> val);</p>
+						<p>Возвращает натуральный логарифм (<span class="kw00">base e</span>) числа <span class="kw00">val если val &gt; 0</span> иначе возвращает ноль.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlLog"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llLog10</h3>
+                    	<p><span class="kw4">float</span> <span class="kw5">llLog10</span>(<span class="kw4">float</span> val);</p>
+						<p>Возвращает десятичный логарифм числа (<span class="kw00">base 10</span>) числа <span class="kw00">val если val &gt; 0</span> иначе возвращает ноль.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlLog10"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llLookAt</h3>
+                        <p><span class="kw5">llLookAt</span>(<span class="kw4">vector</span> target, <span class="kw4">float</span> strength, <span class="kw4">float</span> damping);</p>
+						<p>Установить поворот обьекта по направлению к цели (<span class="kw00">направить взгляд или прицелится</span>) координаты которой заносятся в параметр <span class="kw00">target</span> - после выполнения этой функции обьект повернется к цели и <span class="kw00">ось Z</span> обьекта будет направленна в центр цели <span class="kw00">target</span>. Подходящее значение <span class="kw00">strength</span> лучше установить приблизетельно равной половине массы обьекта , и подходящее значение <span class="kw00">damping</span> лучше установить менее чем <span class="kw00">1/10 силы</span>. Асимметричные формы обьектов требуют меньшего демпфирования <span class="kw00">damping</span>. Сила <span class="kw00">strength</span> равная <span class="kw00">0.0</span> отменяет поворот взгляда обьекта на цель.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlLookAt"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llLoopSound</h3>
+                        <p><span class="kw5">llLoopSound</span>(<span class="kw4">string</span> sound, <span class="kw4">float</span> volume);</p>
+						<p>Эта функция подобна <span class="kw5">llPlaySound</span> и также проигрывает музыкальный файл с именем <span class="kw00">sound</span> и громкостью <span class="kw00">volume</span> прикрепленный к обьекту, но как только проигрывание файла завершается файл начинает проигрыватся снова по кругу без остановок. Остановить циклическое проигрывание файла можно с помощью функции <span class="kw5">llStopSound</span> либо перейти на одноразовое прогигрывание c помощью функции <span class="kw5">llPlaySound</span>. Только один музыкальный файл прикрепленный к обьекту может проигрыватся одновременно . Повторный вызов этой фунции с тем-же именем файла не будет вызывать его проигрывание сначала, но новый параметр звука <span class="kw00">volume</span> будет использован. Это позволяет контролировать излишнюю громкость звука воспроизведения файла. Установка громкости звука в ноль не тоже самое что использование функции <span class="kw5">llStopSound</span>. Звук с нулевой громкость также будет циклически воспроизводится но не будет слышен. Для рестарта проигрывания звука сначало вызовите фцнкцию <span class="kw5">llStopSound</span> и после нее можете вызывать функцию <span class="kw5">llLoopSound</span> снова.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlLoopSound"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llLoopSoundMaster</h3>
+                        <p><span class="kw5">llLoopSoundMaster</span>(<span class="kw4">string</span> sound, <span class="kw4">float</span> volume);</p>
+						<p>Поведение этой функции идентично поведению <span class="kw5">llLoopSound</span>, но с дополнительной маркировкой источника как "<span class="kw00">Sync Master</span>", с использованием "<span class="kw00">Slave</span>" музыкальной синхронизации. Если будет много источников такого звука в пределах области интересов зрителя, то самый слышимый звук (<span class="kw00">с помощью механизма расстояния и объема</span>) будет звук владельца . Использование большого количества источников в пределах маленькой области вряд ли произведет желательный эффект.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlLoopSoundMaster"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llLoopSoundSlave</h3>
+                        <p><span class="kw5">llLoopSoundSlave</span>(<span class="kw4">string</span> sound, <span class="kw4">float</span> volume);</p>
+						<p>Поведение этой функции идентично поведению <span class="kw5">llLoopSound</span>, Если нет "<span class="kw00">Sync Master</span>" звуковых файлов. Если "<span class="kw00">Sync Master</span>" будет уже играть, то звук <span class="kw00">Slave</span> начнет играть с того же самого пункта, владелеца находящегося в цикле, пункты зацикливания обоих звуков будут синхронны. Если звук <span class="kw00">Master</span> начнет играть, когда <span class="kw00">Slave</span> уже играет, то <span class="kw00">Slave</span> будет пропускатся и синхронизироватся с <span class="kw00">Master</span>.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlLoopSoundSlave"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> llMakeExplosion</h3>
+                        <p><span class="kw5">llMakeExplosion</span>(<span class="kw4">integer</span> particles, <span class="kw4">float</span> scale, <span class="kw4">float</span> velocity, <span class="kw4">float</span> lifetime, <span class="kw4">float</span> arc, <span class="kw4">string</span> texture, <span class="kw4">vector</span> offset);</p>
+						<p>Создать шарообразный взрыв частиц с использованием <span class="kw00">texture</span> находящуюся в инвентаре обьекта.</p>
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LlMakeExplosion"  class="hr"><img src="img/Emblem-important.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> Demo</h3>
+
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LDemo"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> Demo</h3>
+
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LDemo"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+                        <h3 class="min"><span class="kw00">A.<span class="nambs"></span></span> Demo</h3>
+
+                        <p class="m55"><a href="http://wiki.secondlife.com/wiki/LDemo"  class="hr"><img src="img/wiki82.png" width="22" height="22" class="leftimg"/><span class="kw01">wiki</span></a></p>
+                    </div>
+
+
 
                 </ol>
             </div>
